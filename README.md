@@ -8,7 +8,7 @@
   
 # MercedesDRA22
 
-En este proyecto se desarollará una aplicación con Angular haciendo de la API de Mercedes.
+En este proyecto se desarollará una aplicación con Angular haciendo uso de la API de Mercedes.
 
 
 ## Desarrolladores
