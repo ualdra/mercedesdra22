@@ -26,3 +26,31 @@ Las personas que han desarrollado el proyecto son:
 - **[Alejandro Faltuk]**
 - **[Ruben Valentin Lopez]**
 
+## Running Docker-compose.yml
+
+To run the Docker-compose file 
+
+```bash
+  docker-compose up -d
+```
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/ualdra/mercedesdra22.git
+```
+
+Go to the project directory
+
+```bash
+  cd mercedesdra22
+```
+## Running Docker-compose.yml
+
+To run the Docker-compose file will run
+
+```bash
+  docker-compose up -d
+```
