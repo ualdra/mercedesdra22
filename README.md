@@ -23,7 +23,7 @@ Las personas que han desarrollado el proyecto son:
 - **[Mohamed Hnina]**
 - **[Ioan Stefan Toderic]**
 - **[Alberto Arroyo Cárdenas]**
-- **[Alejandro Faltuk]**
+- **[Alejandro Tomás Soto Meca]**
 - **[Ruben Valentin Lopez]**
 
 ## Running Docker-compose.yml
