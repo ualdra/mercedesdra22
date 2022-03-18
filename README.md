@@ -8,7 +8,7 @@
   
 # MercedesDRA22
 
-En este proyecto se desarollará una aplicación con Angular haciendo de la API de Mercedes.
+En este proyecto se desarollará una aplicación con Angular haciendo uso de la API de Mercedes.
 
 
 ## Desarrolladores
@@ -23,6 +23,34 @@ Las personas que han desarrollado el proyecto son:
 - **[Mohamed Hnina]**
 - **[Ioan Stefan Toderic]**
 - **[Alberto Arroyo Cárdenas]**
-- **[Alejandro Faltuk]**
+- **[Alejandro Tomás Soto Meca]**
 - **[Ruben Valentin Lopez]**
 
+## Running Docker-compose.yml
+
+To run the Docker-compose file 
+
+```bash
+  docker-compose up -d
+```
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/ualdra/mercedesdra22.git
+```
+
+Go to the project directory
+
+```bash
+  cd mercedesdra22
+```
+## Running Docker-compose.yml
+
+To run the Docker-compose file will run
+
+```bash
+  docker-compose up -d
+```
