@@ -4,11 +4,11 @@ RUN mkdir -p /app
 
 WORKDIR /app
 
-COPY frontend/package.json /app
+COPY ./package.json /app
 
 RUN npm install
 
-COPY frontend/. /app
+COPY . /app
 
 RUN npm run build --prod
 
