@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  forntend:
+  frontend:
     build: ./frontend
     restart: always
     ports: 
