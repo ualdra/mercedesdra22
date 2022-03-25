@@ -1,0 +1,65 @@
+name: 'Build and Test Angular Project'
+
+#Trigger to run the GitHub Action
+#It only runs when main branch is pushed or manually trigger
+on: 
+  push:
+      branches: [ main ]
+      workflow_dispatch:
+
+defaults:
+  run: 
+    working-directory: ./frontend
+#All the jobs to run
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    steps:
+        #Checkout source code to VM
+      - name: Checkout
+        uses: actions/checkout@v2
+        #Setup of NodeJS 16
+      - name: Setup NodeJS 
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+        
+      - name: Install dependencies
+        run: npm ci
+        #Run the script added in package.json (build:ci)
+      - name: Build
+        run: npm run build:ci
+        #Run the script added in package.json (test:ci)
+      - name: Test
+        run: npm run test:ci
+
+      - name: Archive build
+        if: success()
+        uses: actions/upload-artifact@v2
+        with:
+          name: deploy_dist
+          path: /frontend/dist
+      - name: Archive code coverage result
+        if: success()
+        uses: actions/upload-artifact@v2
+        with:
+          name: deploy_coverage
+          path: /fronted/coverage
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Download build
+        uses: actions/download-arctifact@v2
+        with:
+          name: deploy_dist
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: frontend
