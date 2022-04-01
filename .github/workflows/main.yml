@@ -71,3 +71,5 @@ jobs:
         with:
           branch: gh-pages
           folder: deploy_dist/mercedesdra2022
+          clean: false
+          single-commit: true
