@@ -1,12 +1,14 @@
-name: 'Build and Test Angular Project'
+name: 'Build, test and deploy to GitHub Pages Angular Project'
 
 #Trigger to run the GitHub Action
 #It only runs when main branch is pushed or manually trigger
 on: 
   push:
       branches: [ main ]
-      workflow_dispatch:
+      
+  workflow_dispatch:
 
+#Change the working directory to frontend folder
 defaults:
   run: 
     working-directory: ./frontend
@@ -21,45 +23,51 @@ jobs:
         uses: actions/checkout@v2
         #Setup of NodeJS 16
       - name: Setup NodeJS 
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v1
         with:
-          node-version: '16'
+          node-version: 16
         
       - name: Install dependencies
         run: npm ci
+
         #Run the script added in package.json (build:ci)
       - name: Build
-        run: npm run build:ci
+        run: npm run build                                                                  
+
         #Run the script added in package.json (test:ci)
       - name: Test
         run: npm run test:ci
-
+        
+        #Share data between jobs and store data once a workflow is complete
       - name: Archive build
         if: success()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v1
         with:
           name: deploy_dist
-          path: /frontend/dist
+          path: frontend/dist
       - name: Archive code coverage result
         if: success()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v1
         with:
           name: deploy_coverage
-          path: /fronted/coverage
+          path: frontend/coverage
 
+  #Deploy to GitHub Pages in gh-pages branch
   deploy:
-    runs-on: ubuntu-latest
+    name: Push to Github Pages
     needs: build
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        #Use build artifact
       - name: Download build
-        uses: actions/download-arctifact@v2
+        uses: actions/download-artifact@v1
         with:
           name: deploy_dist
-      - name: Deploy to GitHub Pages
+      #Deploy build folder (dist/mercedesdra2022) to gh-pages branch GitHub for Pages)
+      - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: frontend
+          branch: gh-pages
+          folder: deploy_dist/mercedesdra2022
