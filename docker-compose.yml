@@ -4,7 +4,14 @@ services:
     build: ./frontend
     restart: always
     ports: 
-      - '80:80'
+      - '8080:8080'
+  backend:
+    build: ./backend
+    restart: always
+    ports: 
+      - '8081:8081'
+    depends_on:
+      - db
   db:
     image: postgres:14.1-alpine
     restart: always
