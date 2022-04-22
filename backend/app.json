@@ -1,0 +1,9 @@
+
+{
+    "name": "heroku-mercedes-app",
+    "buildpacks": [
+      {
+        "url": "heroku/gradle"
+      }
+    ]
+  }
