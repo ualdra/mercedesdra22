@@ -4,7 +4,14 @@ services:
     build: ./frontend
     restart: always
     ports: 
-      - '80:80'
+      - '8080:8080'
+  backend:
+    build: ./backend
+    restart: always
+    ports: 
+      - '8081:8081'
+    depends_on:
+      - db
   db:
     image: postgres:14.1-alpine
     restart: always
@@ -15,12 +22,6 @@ services:
       - '5432:5432'
     volumes: 
       - db:/var/lib/postgresql/data
-  backend:
-    build: ./backend
-    restart: always
-    ports: 
-      - '8080:8081'
-    
 volumes:
   db:
     driver: local
