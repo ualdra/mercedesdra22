@@ -1,74 +1,41 @@
-name: 'Build, test and deploy to GitHub Pages Angular Project'
+# This is a basic workflow to help you get started with Actions
 
-#Trigger to run the GitHub Action
-#It only runs when main branch is pushed or manually trigger
-on: 
+name: 'Deploy on Github Pages'
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
   push:
-      branches: [ main ]
-      
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-#Change the working directory to frontend folder
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 defaults:
   run: 
     working-directory: ./frontend
-#All the jobs to run
 jobs:
-  build:
-    name: Build and Test
+  deploy_ghpages:
+    name: Push to Github Pages
     runs-on: ubuntu-latest
     steps:
-        #Checkout source code to VM
-      - name: Checkout
-        uses: actions/checkout@v2
-        #Setup of NodeJS 16
-      - name: Setup NodeJS 
+      - uses: actions/checkout@v2
+      # Runs a single command using the runners shell
+      - name: Use node 16
         uses: actions/setup-node@v1
         with:
           node-version: 16
-        
       - name: Install dependencies
         run: npm ci
-
-        #Run the script added in package.json (build:ci)
       - name: Build
-        run: npx ng build --base-href /mercedesdra2022/                                                               
-
-        #Run the script added in package.json (test:ci)
-      - name: Test
-        run: npm run test:ci
-        
-        #Share data between jobs and store data once a workflow is complete
-      - name: Archive build
-        if: success()
-        uses: actions/upload-artifact@v1
-        with:
-          name: deploy_dist
-          path: frontend/dist
-      - name: Archive code coverage result
-        if: success()
-        uses: actions/upload-artifact@v1
-        with:
-          name: deploy_coverage
-          path: frontend/coverage
-
-  #Deploy to GitHub Pages in gh-pages branch
-  deploy:
-    name: Push to Github Pages
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        #Use build artifact
-      - name: Download build
-        uses: actions/download-artifact@v1
-        with:
-          name: deploy_dist
-      #Deploy build folder (dist/mercedesdra2022) to gh-pages branch GitHub for Pages)
+        run: npx ng build --base-href /mercedesdra22/
+      # Workflow dispatch event that pushes the current version to the release branch.
+      # From here the secondary production deployment workflow will trigger to build the dependencies.
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
           branch: gh-pages
-          folder: deploy_dist/mercedesdra2022
-          clean: false
+          folder: frontend/dist/mercedesdra2022
+          clean: true
+          single-commit: true

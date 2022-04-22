@@ -1,4 +1,4 @@
-FROM openjdk:16-alpine as build
+FROM openjdk:17 as build
 WORKDIR /workspace/app
 
 COPY mvnw .
@@ -7,4 +7,7 @@ COPY pom.xml .
 COPY src src
 
 RUN sh mvnw install -DskipTests
-RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
+
+EXPOSE 8081
+
+CMD ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
