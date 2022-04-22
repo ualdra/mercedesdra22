@@ -7,4 +7,7 @@ COPY pom.xml .
 COPY src src
 
 RUN sh mvnw install -DskipTests
-RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
+
+EXPOSE 8081
+
+CMD ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
