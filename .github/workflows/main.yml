@@ -32,7 +32,7 @@ jobs:
 
         #Run the script added in package.json (build:ci)
       - name: Build
-        run: npm run build                                                                  
+        run: npx ng build --base-href /mercedesdra2022/                                                               
 
         #Run the script added in package.json (test:ci)
       - name: Test
@@ -72,4 +72,3 @@ jobs:
           branch: gh-pages
           folder: deploy_dist/mercedesdra2022
           clean: false
-          single-commit: true
