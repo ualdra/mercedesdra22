@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 import java.util.List;
 
-import com.example.demo.Entity.Configuration;
+import com.example.demo.entity.Configuration;
 import com.example.demo.repository.ConfigurationRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

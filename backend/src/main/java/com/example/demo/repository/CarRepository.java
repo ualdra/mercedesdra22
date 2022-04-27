@@ -1,7 +1,9 @@
 package com.example.demo.repository;
 
-import com.example.demo.Entity.Car;
 import java.util.List;
+
+import com.example.demo.entity.Car;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.repository.query.Param;
