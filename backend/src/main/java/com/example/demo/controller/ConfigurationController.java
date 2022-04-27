@@ -2,46 +2,49 @@ package com.example.demo.controller;
 
 import java.util.List;
 
-import com.example.demo.Entity.Car;
-import com.example.demo.repository.CarRepository;
+import com.example.demo.Entity.Configuration;
+import com.example.demo.repository.ConfigurationRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 public class ConfigurationController {
 
     @Autowired
-    private CarRepository repository;
+    private ConfigurationRepository repository;
 
     @GetMapping(path = "/configurations")
-    public List<Car> allcars() {
-        return (List<Car>) repository.findAll();
+    public List<Configuration> allConfiguration() {
+        return (List<Configuration>) repository.findAll();
     }
-    @GetMapping(path = "/configura/{id}")
-    public List<Car> findBylastName(@PathVariable("id") long id) {
+    @GetMapping(path = "/configuration/{id}")
+    public List<Configuration> findById(@PathVariable("id") long id) {
         return repository.findById(id);
     }
-    @PostMapping(path = "/car")
-    public Car createUser(@RequestBody Car car) {
-        return repository.save(car);
+    @GetMapping(path = "/configuration/url/{url}")
+    public List<Configuration> findByUrl(@PathVariable("url") String url) {
+        return repository.findByUrl(url);
     }
-    @PutMapping(path = "/car/{id}")
-    public Car updateUser(@PathVariable int id, @RequestBody Car car) {
-        return repository.save(car);
+     @PostMapping(path = "/configuration")
+    public Configuration createConfiguration(@RequestBody Configuration configuration) {
+        return repository.save(configuration);
     }
-    @DeleteMapping(path = "/car/{id}")
-    public void deleteUser(@PathVariable("id") Long id) {
+    @PutMapping(path = "/configuration/{id}")
+    public Configuration updateConfiguration(@PathVariable long id, @RequestBody Configuration configuration) {
+        repository.deleteById(id);
+        return repository.save(configuration);
+    }
+    @DeleteMapping(path = "/configuration/{id}")
+    public void deleteConfiguration(@PathVariable("id") Long id) {
         repository.deleteById(id);
     }
+ 
 }
