@@ -1,11 +1,13 @@
-package com.example.demo.Entity;
+package com.example.demo.entity;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -26,6 +28,7 @@ public class Car {
     @NotBlank(message = "carroceria is mandatory")
     private String carroceria;
 
+    @Lob
     @NotBlank(message = "imagen is mandatory")
     private String imagen;
 
