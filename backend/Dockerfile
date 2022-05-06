@@ -1,4 +1,4 @@
-FROM openjdk:16-alpine as build
+FROM openjdk:17 as build
 WORKDIR /workspace/app
 
 COPY mvnw .
