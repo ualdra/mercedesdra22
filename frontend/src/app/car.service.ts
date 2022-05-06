@@ -15,6 +15,6 @@ export class CarService {
   }
 
   getModel(carroceria: String): Observable<any> {
-    return this.http.get(`${this.backendURL}/cars`);
+    return this.http.get(`${this.backendURL}/cars/${carroceria}`);
   }
 }
