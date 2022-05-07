@@ -14,12 +14,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
+import { MotorComponent } from './motor/motor.component';
+import { MotoresComponent } from './motores/motores.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    NavComponent
+    NavComponent,
+    MotorComponent,
+    MotoresComponent
   ],
   imports: [
     BrowserModule,
