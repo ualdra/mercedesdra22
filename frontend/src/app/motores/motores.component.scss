@@ -1,0 +1,9 @@
+section.lista {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap:15px;
+}
