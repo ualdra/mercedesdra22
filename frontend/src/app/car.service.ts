@@ -9,7 +9,6 @@ export class CarService {
     'https://api.mercedes-benz.com/configurator/v1/markets/es_ES'; // URL to web api
   private backendURL = 'http://localhost:8081/api';
   private api_key = 'e8a9ef28-45fe-48e6-99dd-945aeb343b6b';
-  private api_key_aux = 'a110573c-86b8-407b-87e1-62e58c446687'
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -24,10 +23,8 @@ export class CarService {
 
   getModel(carroceria: String): Observable<any> {
     return this.http.get(
-      `${this.mercedesURL}/models?bodyId=${carroceria}&apikey=${this.api_key_aux}`,
+      `${this.mercedesURL}/models?bodyId=${carroceria}&apikey=${this.api_key}`,
       this.httpOptions
     );
   }
-
-
 }
