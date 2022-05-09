@@ -14,12 +14,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
+import { ConfiguracionTarjetaComponent } from './configuracion-tarjeta/configuracion-tarjeta.component';
+import { TapiceriaComponent } from './tapiceria/tapiceria.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    NavComponent
+    NavComponent,
+    ConfiguracionTarjetaComponent,
+    TapiceriaComponent
   ],
   imports: [
     BrowserModule,
