@@ -20,6 +20,7 @@ import { MotoresComponent } from './motores/motores.component';
 import { ConfiguracionTarjetaComponent } from './configuracion-tarjeta/configuracion-tarjeta.component';
 import { TapiceriaComponent } from './tapiceria/tapiceria.component';
 import { CarComponent } from './car/coche.component';
+import { GarageComponent } from './garage/garage.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CarComponent } from './car/coche.component';
     MotoresComponent,
     ConfiguracionTarjetaComponent,
     TapiceriaComponent,
-    CarComponent
+    CarComponent,
+    GarageComponent
   ],
   imports: [
     BrowserModule,

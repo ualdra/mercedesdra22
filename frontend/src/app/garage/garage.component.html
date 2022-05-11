@@ -1,0 +1,17 @@
+<div *ngIf="configuraciones.length === 0; then thenBlock; else elseBlock"></div>
+
+<ng-template #thenBlock>
+  <div class="texto">
+    <h2>No existen configuraciones guardadas en el garaje</h2>
+  </div>
+
+  <div class="container">
+    <img id="imgGarage" src="{{ garageImage }}" />
+  </div>
+</ng-template>
+
+<ng-template #elseBlock> configuraciones existentes </ng-template>
+
+<!-- <div class="container">
+  <img id="imgGarage" src="{{garageImage}}">
+</div> -->
