@@ -1,0 +1,26 @@
+.container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    width: 70%;
+  
+    
+}
+#imgCar{
+    display:flex;
+    justify-content: auto;
+    border-radius: 10px;
+}
+.below{
+    display:flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+p{
+    row-gap: 1px;
+    display:flex;
+    flex-direction: row;
+    
+}
