@@ -68,16 +68,11 @@
       </span>
       </div>
       <div>
-      <button mat-button [matMenuTriggerFor]="menu">
+      <button mat-button routerLink="/garage">
         <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
         Mi Garaje
       </button>
-      <mat-menu #menu="matMenu">
-        <!-- <button mat-menu-item (click)="openDetail()" >Datos personales</button>
-        <button mat-menu-item (click)="logOut()" >Cerrar sesión</button> -->
-        <button mat-menu-item >Datos personales</button>
-        <button mat-menu-item >Cerrar sesión</button>
-      </mat-menu>
+
       </div>
     </mat-toolbar>
     <router-outlet> </router-outlet>
