@@ -1,0 +1,40 @@
+.container{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+  width: 70%;
+
+
+}
+
+
+#imgGarage{
+  padding-top: 10px;
+  display:flex;
+  justify-content: auto;
+  border-radius: 10px;
+}
+.below{
+  display:flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+p{
+  text-decoration-color: black;
+  justify-content: center;
+  display:flex;
+  flex-direction: row;
+
+}
+
+.texto{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display:flex;
+  flex-direction: column;
+
+  align-items: center;
+
+}
