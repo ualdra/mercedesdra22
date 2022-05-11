@@ -14,13 +14,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
-import { CocheComponent } from './coche/coche.component';
+import { CarComponent } from './car/coche.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    CocheComponent,
+    CarComponent,
     FooterComponent
   ],
   imports: [
