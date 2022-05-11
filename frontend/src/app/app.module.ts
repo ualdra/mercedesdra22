@@ -19,6 +19,7 @@ import { MotorComponent } from './motor/motor.component';
 import { MotoresComponent } from './motores/motores.component';
 import { ConfiguracionTarjetaComponent } from './configuracion-tarjeta/configuracion-tarjeta.component';
 import { TapiceriaComponent } from './tapiceria/tapiceria.component';
+import { CarComponent } from './car/coche.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TapiceriaComponent } from './tapiceria/tapiceria.component';
     MotorComponent,
     MotoresComponent,
     ConfiguracionTarjetaComponent,
-    TapiceriaComponent
+    TapiceriaComponent,
+    CarComponent
   ],
   imports: [
     BrowserModule,
