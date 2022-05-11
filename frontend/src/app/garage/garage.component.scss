@@ -10,11 +10,14 @@
 
 
 #imgGarage{
+  width: 70%;
   padding-top: 10px;
   display:flex;
-  justify-content: auto;
+  justify-content: center;
   border-radius: 10px;
+  margin-left: 10%;  
 }
+
 .below{
   display:flex;
   flex-direction: column;
