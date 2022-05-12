@@ -16,6 +16,7 @@
     display:flex;
     flex-direction: column;
     row-gap: 10px;
+    justify-items: left;
 }
 
 p{
@@ -24,3 +25,11 @@ p{
     flex-direction: row;
     
 }
+.top
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-top: 10px;
+}
+
