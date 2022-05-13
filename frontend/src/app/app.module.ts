@@ -17,6 +17,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { MotorComponent } from './motor/motor.component';
 import { MotoresComponent } from './motores/motores.component';
+import { ConfiguracionTarjetaComponent } from './configuracion-tarjeta/configuracion-tarjeta.component';
+import { TapiceriaComponent } from './tapiceria/tapiceria.component';
+import { CarComponent } from './car/coche.component';
+import { GarageComponent } from './garage/garage.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { MotoresComponent } from './motores/motores.component';
     FooterComponent,
     NavComponent,
     MotorComponent,
-    MotoresComponent
+    MotoresComponent,
+    ConfiguracionTarjetaComponent,
+    TapiceriaComponent,
+    CarComponent,
+    GarageComponent
   ],
   imports: [
     BrowserModule,
