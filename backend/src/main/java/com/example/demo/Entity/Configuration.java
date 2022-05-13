@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -21,7 +22,10 @@ public class Configuration {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+
+    
     @NotBlank(message = "URL is mandatory")
+    @Column(name = "url", length = 1024)
     private String url;
 
     @OneToOne(fetch = FetchType.EAGER, targetEntity = Car.class)
