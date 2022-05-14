@@ -4,6 +4,7 @@
   justify-content: center;
   width: 100%;
 }
+
 .div-button-menu{
   display: flex;
   align-items: center;
@@ -11,15 +12,17 @@
   width: 100%;
 
 }
+
 .div-button-menu button{
   background-color: #000;
   color: white;
   margin: 10px;
 
 }
+
 .sidenav {
   left: 0;
-  margin-top: 65px;
+  margin-top: 64px;
   width: 200px;
 }
 
@@ -53,7 +56,6 @@
   height: 100%;
 }
 
-
 .cars{
   display: flex;
   flex-direction: row;
@@ -61,30 +63,32 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  margin-left: 20%;
+  margin-left: 200px;
 }
 
-@media(max-width:985px){
-  .content{
-   justify-content: center;
+// @media(max-width:985px){
+//   .content{
+//     justify-content: center;
+//   }
+// }
+
+@media(max-width: 910px) and (min-width: 580px){
+  .sidenav {
+    margin-top: 64px;
   }
-
 }
 
-@media(max-width:600px){
-  .content{
-   justify-content: center;
+@media(max-width: 585px) and (min-width: 0px){
+  .sidenav {
+    margin-top: 56px;
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
+@media(max-width: 910px) and (min-width: 0px){
+  .content{
+    justify-content: center;
+  }
+  .cars{
+    margin-left: 0px;
+  }
+}
