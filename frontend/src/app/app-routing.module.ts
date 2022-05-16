@@ -4,12 +4,14 @@ import { MotorComponent } from './motor/motor.component';
 import { MotoresComponent } from './motores/motores.component';
 import { TapiceriaComponent } from './tapiceria/tapiceria.component';
 import { GarageComponent } from './garage/garage.component';
+import { MenuComponent } from './menu/menu.component';
 
 const routes: Routes = [
   {path:'motor', component: MotorComponent},
   {path:'motores', component: MotoresComponent},
   {path:'tapiceria', component:TapiceriaComponent},
   {path:'garage', component:GarageComponent},
+  {path:'menu', component:MenuComponent}
 ];
 
 @NgModule({
