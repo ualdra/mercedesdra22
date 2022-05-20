@@ -3,15 +3,15 @@
     <img id="imgCar" src="{{imagen}}">
 </div>
 <div class="below"> 
-    <p> 
-    <app-configuracion-tarjeta> </app-configuracion-tarjeta>
-    <app-configuracion-tarjeta> </app-configuracion-tarjeta>
-    <app-configuracion-tarjeta> </app-configuracion-tarjeta> </p>
-    <!--<p class="two"></p> -->
-    <p>
-        <app-configuracion-tarjeta> </app-configuracion-tarjeta>
-        <app-configuracion-tarjeta> </app-configuracion-tarjeta>
-        <app-configuracion-tarjeta> </app-configuracion-tarjeta> </p> 
+    
+        <div *ngFor="let tapiceria of tapicerias">
+            <app-configuracion-tarjeta 
+            [nombre]="tapiceria.nombre"
+            [precio]="tapiceria.precio"
+            [descripcion]="tapiceria.descripcion">
+            </app-configuracion-tarjeta>
+          </div>  
         
 </div>
 </div>
+
