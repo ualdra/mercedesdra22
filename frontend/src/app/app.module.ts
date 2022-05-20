@@ -22,6 +22,7 @@ import { TapiceriaComponent } from './tapiceria/tapiceria.component';
 import { CarComponent } from './car/coche.component';
 import { GarageComponent } from './garage/garage.component';
 import { ContentComponent } from './content/content.component';
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ContentComponent } from './content/content.component';
     TapiceriaComponent,
     CarComponent,
     GarageComponent,
-    ContentComponent
+    ContentComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
