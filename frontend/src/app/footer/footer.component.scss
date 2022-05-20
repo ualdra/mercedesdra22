@@ -21,6 +21,9 @@ li {
 footer {
   width: 100%;
   background-color: #000000;
+  position: fixed;
+  bottom:0%;
+ 
 }
 
 .container {
@@ -29,6 +32,8 @@ footer {
   flex-wrap: wrap;
   width: 100%;
   flex-direction: row;
+  text-align: center;
+
 }
 
 label {

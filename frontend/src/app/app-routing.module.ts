@@ -12,7 +12,8 @@ const routes: Routes = [
   {path:'motores', component: MotoresComponent},
   {path:'tapiceria', component:TapiceriaComponent},
   {path:'',component:ContentComponent},
-  {path:'garage', component:GarageComponent}
+  {path:'garage', component:GarageComponent},
+  {path:'menu', component:MenuComponent}
 
 ];
 
