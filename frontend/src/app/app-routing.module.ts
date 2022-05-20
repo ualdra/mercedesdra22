@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:'tapiceria', component:TapiceriaComponent},
   {path:'',component:ContentComponent},
   {path:'garage', component:GarageComponent},
-  {path:'menu', component:MenuComponent}
+  {path: 'menu', component:MenuComponent}
 
 ];
 
