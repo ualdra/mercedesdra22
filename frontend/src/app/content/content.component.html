@@ -181,11 +181,12 @@
       </mat-sidenav>
     </div>
     <div class="cars">
-      <app-car></app-car>
-      <app-car></app-car>
-      <app-car></app-car>
-      <app-car></app-car>
-      <app-car></app-car>
+      <div *ngFor="let car of modelCars; index as i" class="car">
+        <app-car
+          [claseCoche]="car.class"
+          [precioCoche]="car.cars[0].price"
+        ></app-car>
+      </div>
     </div>
   </div>
 </div>

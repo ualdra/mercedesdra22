@@ -8,10 +8,10 @@ export class CarService {
   private mercedesURL =
     'https://api.mercedes-benz.com/configurator/v1/markets/es_ES'; // URL to web api
   private backendURL = 'http://localhost:8081/api';
-  private api_key = 'e8a9ef28-45fe-48e6-99dd-945aeb343b6bX';
+  private api_key = 'c1d9132c-f448-4e99-b638-777604cb83fb';
   private api_keyOWN = '4c42f347-3571-4aec-9b4e-XX';
   car:any = [];
-  
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ export class CarService {
   }
 
   saveConfiguration(URLconfiguration: String, modelIdBackend: Number) {
-    
+
     this.http.get(`${this.backendURL}/car/${modelIdBackend}`,
     this.httpOptions).subscribe((resp: any) => {
       this.car.push({id: modelIdBackend ,modelo : resp[0].modelo, carroceria: resp[0].carroceria, imagen: resp[0].imagen});
