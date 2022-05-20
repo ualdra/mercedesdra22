@@ -1,0 +1,26 @@
+*{
+  margin:0;
+  padding:0;
+ }
+
+ mat-nav-list {
+  width: 150px;
+  height: 250px;
+  margin: 20px;
+  position: absolute;
+  top:55px;
+ }
+
+ button {
+  color:rgb(118, 118, 118);
+ }
+
+ button:hover{
+  background-color:#ececec;
+  color:rgb(165, 165, 165);
+ }
+
+ button:active{
+  background-color:#000000;
+  color:rgb(255, 255, 255);
+ }
