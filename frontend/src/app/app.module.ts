@@ -21,7 +21,8 @@ import { ConfiguracionTarjetaComponent } from './configuracion-tarjeta/configura
 import { TapiceriaComponent } from './tapiceria/tapiceria.component';
 import { CarComponent } from './car/coche.component';
 import { GarageComponent } from './garage/garage.component';
-import { MenuComponent } from './menu/menu.component';
+import { ContentComponent } from './content/content.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { MenuComponent } from './menu/menu.component';
     TapiceriaComponent,
     CarComponent,
     GarageComponent,
-    MenuComponent
+    ContentComponent
   ],
   imports: [
     BrowserModule,
