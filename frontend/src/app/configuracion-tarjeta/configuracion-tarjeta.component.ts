@@ -7,15 +7,13 @@ import { CarService } from '../car.service';
   styleUrls: ['./configuracion-tarjeta.component.scss']
 })
 export class ConfiguracionTarjetaComponent implements OnInit {
-  
+
   listConfigurations:any = {};
   constructor(
     private carService: CarService
   ) {}
 
   ngOnInit(): void {
-    console.log("Prueeeeba")
-   console.log(this.getConfigurationsList());
   }
   nombre="Cuero"  //Insertar el nombre s
   descripcion="Tapizado en cuero marrón " //Insertar la descripción
@@ -25,7 +23,7 @@ export class ConfiguracionTarjetaComponent implements OnInit {
 
 
   getConfigurationsList(){
-    
+
     this.listConfigurations = {}
     this.carService.getConfigurations().subscribe((resp:any) => {
       resp.forEach((item: {id: any; url: any})  => {
@@ -34,7 +32,7 @@ export class ConfiguracionTarjetaComponent implements OnInit {
         console.log(this.listConfigurations)
       });
     return this.listConfigurations;
-   
+
     });
   }
 }
