@@ -8,7 +8,7 @@ export class CarService {
   private mercedesURL =
     'https://api.mercedes-benz.com/configurator/v1/markets/es_ES'; // URL to web api
   private backendURL = 'http://localhost:8081/api';
-  private api_key = '64994897-7677-496a-b2da-98c66e7b52b6';
+  private api_key = '4c42f347-3571-4aec-9b4e-2b8e03cb4c85';
   private api_keyOWN = '4c42f347-3571-4aec-9b4e-XX';
   private components: any | undefined;
   car: any = [];
@@ -19,19 +19,10 @@ export class CarService {
       'Access-Control-Allow-Origin': '*',
     }),
   };
-  constructor(private http: HttpClient) {
-    // this.createConfiguration(2054641,1);
-  }
+  constructor(private http: HttpClient) {}
 
   getModels(): Observable<any> {
     return this.http.get(`${this.backendURL}/cars`);
-  }
-
-  getModel(carroceria: String): Observable<any> {
-    return this.http.get(
-      `${this.mercedesURL}/models?bodyId=${carroceria}&apikey=${this.api_key}`,
-      this.httpOptions
-    );
   }
 
   createConfiguration(modelId: Number, modelIdBackend: Number) {
@@ -42,7 +33,6 @@ export class CarService {
       )
       .subscribe((resp: any) => {
         this.saveConfiguration(resp._links.selectables, modelIdBackend);
-        console.log(resp._links.selectables);
       });
   }
 
@@ -80,17 +70,25 @@ export class CarService {
 
   //pasar por parámetro respuestaConfigutracion._links.selectables (es la url de la peticion para obtener los componentes que podemos añadir)
 
-  loadConfiguration(url: String) {
-    if (this.components == undefined) {
-      this.http.get(`${url}`).subscribe((data) => (this.components = data));
-    }
+  async loadConfiguration(modelId: String) {
+    const configuration = await this.http
+      .get<any>(
+        `${this.mercedesURL}/models/${modelId}/configurations/initial?apikey=${this.api_key}`,
+        this.httpOptions
+      )
+      .toPromise();
+
+    this.components = await this.http
+      .get(configuration?._links?.selectables, this.httpOptions)
+      .toPromise();
+
   }
 
   dropConfiguration() {
     this.components = undefined;
   }
 
-  getPinturas(): any[] {
+  getPinturas(modelId: any): any[] {
     let paints: any[] = [];
     let pinturasID: any[] = [];
     this.components.componentCategories
@@ -107,7 +105,9 @@ export class CarService {
     return paints;
   }
 
-  getTapiceria(): any[] {
+  async getTapiceria(): Promise<any[]> {
+    await this.loadConfiguration('2062031');
+
     let tapiceria: any[] = [];
     let tapiceriaID: any[] = [];
     this.components.componentCategories
@@ -122,5 +122,46 @@ export class CarService {
     });
 
     return tapiceria;
+  }
+
+  async getModel(carroceria: String): Promise<any> {
+    let modelCars: any = [];
+    let response = this.http
+      .get<any>(`${this.mercedesURL}/models?bodyId=${carroceria}&apikey=${this.api_key}`, this.httpOptions)
+      .toPromise();
+
+        var aux = await response;
+        aux.forEach(async (item: {vehicleClass: { className: any };modelId: any;name: any;priceInformation: { price: any };}) => {
+            if (!modelCars.some((e: { class: any }) => e.class == item.vehicleClass.className)) {
+              modelCars.push({ class: item.vehicleClass.className, cars: [] });
+            }
+
+            const datosMotor = await this.getDatosMotor(item.modelId);
+
+            //console.log(datosMotor)
+            await modelCars.find((element: { class: any; cars: [] }) =>element.class == item.vehicleClass.className)
+              .cars.push({modelId: item.modelId, name: item.name, price: item.priceInformation.price, consumption: await datosMotor.consumo,
+                acceleration: await datosMotor.aceleracion, emissions: await datosMotor.emisiones, power: await datosMotor.caballos});
+
+
+            await modelCars.find((element: { class: any; cars: [] }) => element.class == item.vehicleClass.className)
+              .cars.sort((a: { price: number }, b: { price: number }) => a.price - b.price );
+        });
+    return modelCars;
+  }
+
+  async getDatosMotor(modelId: String) : Promise<any>{
+    const configuration = await this.http
+      .get<any>(
+        `${this.mercedesURL}/models/${modelId}/configurations/initial?apikey=${this.api_key}`, this.httpOptions )
+      .toPromise();
+
+    var datosMotor = {
+      consumo : await configuration.technicalInformation.engine.fuelEconomy.fuelConsumptionCombinedMin.value,
+      aceleracion: await configuration.technicalInformation.acceleration.value,
+      emisiones: await configuration.technicalInformation.engine.fuelEconomy.emissionCO2Min.value,
+      caballos: await configuration.technicalInformation.engine.fuelType == "ELECTRIC" ? configuration.technicalInformation.engine.powerHybridExtensionHp.value  :await configuration.technicalInformation.engine.powerHp.value
+    }
+    return datosMotor;
   }
 }
