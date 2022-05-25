@@ -27,28 +27,11 @@ export class ContentComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  getModel(carroceria: String) {
+  async getModel(carroceria: String) {
 
-    this.modelCars = []
-    this.carService.getModel(carroceria).subscribe((resp) => {
+    this.modelCars =  await this.carService.getModel(carroceria);
 
-      resp.forEach((item: { vehicleClass: { className: any }; modelId: any; name: any; priceInformation : any,  }) => {
-
-        if (!this.modelCars.some((e: { class: any; }) => e.class == item.vehicleClass.className)) {
-          this.modelCars.push({class : item.vehicleClass.className, cars : []});
-
-        //this.modelCars.find((element: string | number) => element == item.vehicleClass.className).push([]);
-        }
-
-        this.modelCars.find(((element: { class: any; cars : [] }) => element.class == item.vehicleClass.className)).cars.push({modelId : item.modelId, name:item.name, price: item.priceInformation.price});
-        this.modelCars.find(((element: { class: any; cars : [] }) => element.class == item.vehicleClass.className)).cars.sort((a: { price: number; },b: { price: number; }) => a.price - b.price)
-
-      });
-
-    console.log( this.modelCars );
-
-    });
-
+    console.log(this.modelCars)
   }
 
 }

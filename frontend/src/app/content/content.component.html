@@ -182,10 +182,6 @@
     </div>
     <div class="cars">
       <div *ngFor="let car of modelCars; index as i" class="car">
-        <app-car
-          [claseCoche]="car.class"
-          [precioCoche]="car.cars[0].price"
-        ></app-car>
       </div>
     </div>
   </div>

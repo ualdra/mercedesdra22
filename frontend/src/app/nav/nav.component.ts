@@ -23,20 +23,8 @@ export class NavComponent implements OnInit {
     private carService: CarService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
 
-  getModel(carroceria: String) {
-
-    this.modelCars = {}
-    this.carService.getModel(carroceria).subscribe((resp) => {
-
-      resp.forEach((item: { vehicleClass: { className: string | number; }; modelId: any; name: any; priceInformation : any }) => {
-        if (!this.modelCars[item.vehicleClass.className]) {
-          this.modelCars[item.vehicleClass.className] = [];
-        }
-        this.modelCars[item.vehicleClass.className].push({modelId : item.modelId, name:item.name, price: item.priceInformation.price});
-    });
-      console.log(this.modelCars);
-    });
   }
-}
+
+ }
