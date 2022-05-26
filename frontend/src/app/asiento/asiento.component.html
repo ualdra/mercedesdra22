@@ -1,1 +1,13 @@
-<p>asiento works!</p>
+<div class="contenedor">
+  <img class="contenedor" src="{{imagen}}">
+  <div class="titulo">{{ nombre }}</div>
+  <div class="precio">{{ precio }}</div>
+  <ul class="caracteristicas" *ngFor="let carac of caracteristicas">
+    <li class="lista">{{ carac }}</li>
+  </ul>
+  <div aling="right">
+    <button type="button" class="seleccionar" (click)="seleccionar()">
+      Seleccionar
+    </button>
+  </div>
+</div>
