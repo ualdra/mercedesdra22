@@ -8,7 +8,7 @@
 .div-button-menu{
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   width: 100%;
 
 }
@@ -23,7 +23,7 @@
 .sidenav {
   left: 0;
   margin-top: 64px;
-  width: 200px;
+  width: 150px;
 }
 
 .sidenav .mat-toolbar {
@@ -84,6 +84,10 @@
 
 .llanta{
   width: 50%;
+}
+.motor{
+  width: 50%;
+
 }
 
 // @media(max-width:985px){
