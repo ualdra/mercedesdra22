@@ -25,7 +25,11 @@ import { ContentComponent } from './content/content.component';
 import { MenuComponent } from './menu/menu.component';
 import { ConfiguratorComponent } from './configurator/configurator.component';
 import { PinturaComponent } from './pintura/pintura.component';
+<<<<<<< HEAD
 import { AsientoComponent } from './asiento/asiento.component';
+=======
+import { LlantaComponent } from './llanta/llanta.component';
+>>>>>>> 7db9923bff5b73f4c24399d325d12ed98a6abc16
 
 
 @NgModule({
@@ -43,7 +47,11 @@ import { AsientoComponent } from './asiento/asiento.component';
     MenuComponent,
     ConfiguratorComponent,
     PinturaComponent,
+<<<<<<< HEAD
     AsientoComponent
+=======
+    LlantaComponent
+>>>>>>> 7db9923bff5b73f4c24399d325d12ed98a6abc16
   ],
   imports: [
     BrowserModule,
