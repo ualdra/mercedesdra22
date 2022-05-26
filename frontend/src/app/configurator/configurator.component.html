@@ -69,17 +69,28 @@
      -->
     <div *ngIf="typeConfiguration == 1" class="cars">
       <app-motor></app-motor>
+      <app-motor></app-motor>
+      <app-motor></app-motor>
     </div>
     <div *ngIf="typeConfiguration == 2" class="cars">
+      <div class="mercedesCar">
+        <img id="mercedesCar" src="./assets/mercedesPintura.png" alt="" />
+      </div>
       <app-pintura></app-pintura>
       <app-pintura></app-pintura>
       <app-pintura></app-pintura>
       <app-pintura></app-pintura>
     </div>
-    <div *ngIf="typeConfiguration == 3" class="cars"></div>
+    <div *ngIf="typeConfiguration == 3" class="cars">
+      <div class="mercedesCar">
+        <img id="mercedesLlantas" src="./assets/llantas.png" alt="" />
+      </div>
+    </div>
     <div *ngIf="typeConfiguration == 4" class="cars">
       <app-tapiceria></app-tapiceria>
     </div>
-    <div *ngIf="typeConfiguration == 5" class="cars"></div>
+    <div *ngIf="typeConfiguration == 5" class="cars">
+      <app-asiento></app-asiento>
+    </div>
   </div>
 </div>
