@@ -8,7 +8,7 @@ import { MotoresComponent } from './motores/motores.component';
 import { PinturaComponent } from './pintura/pintura.component';
 import { LlantaComponent } from './llanta/llanta.component';
 import { TapiceriaComponent } from './tapiceria/tapiceria.component';
-// import { AsientoComponent } from './asiento/asiento.component';
+import { AsientoComponent } from './asiento/asiento.component';
 
 import { ConfiguratorComponent } from './configurator/configurator.component';
 
@@ -23,7 +23,7 @@ const routes: Routes = [
   {path:'pintura', component: PinturaComponent},
   {path:'llanta', component:LlantaComponent},
   {path:'tapiceria', component:TapiceriaComponent},
-  // {path:'asiento', component: AsientoComponent}
+  {path:'asiento', component: AsientoComponent}
 ];
 
 @NgModule({

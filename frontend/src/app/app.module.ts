@@ -25,6 +25,7 @@ import { ContentComponent } from './content/content.component';
 import { MenuComponent } from './menu/menu.component';
 import { ConfiguratorComponent } from './configurator/configurator.component';
 import { PinturaComponent } from './pintura/pintura.component';
+import { AsientoComponent } from './asiento/asiento.component';
 import { LlantaComponent } from './llanta/llanta.component';
 
 
@@ -43,6 +44,7 @@ import { LlantaComponent } from './llanta/llanta.component';
     MenuComponent,
     ConfiguratorComponent,
     PinturaComponent,
+    AsientoComponent,
     LlantaComponent
   ],
   imports: [
