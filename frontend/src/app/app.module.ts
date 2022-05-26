@@ -25,6 +25,7 @@ import { ContentComponent } from './content/content.component';
 import { MenuComponent } from './menu/menu.component';
 import { ConfiguratorComponent } from './configurator/configurator.component';
 import { PinturaComponent } from './pintura/pintura.component';
+import { LlantaComponent } from './llanta/llanta.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { PinturaComponent } from './pintura/pintura.component';
     ContentComponent,
     MenuComponent,
     ConfiguratorComponent,
-    PinturaComponent
+    PinturaComponent,
+    LlantaComponent
   ],
   imports: [
     BrowserModule,
