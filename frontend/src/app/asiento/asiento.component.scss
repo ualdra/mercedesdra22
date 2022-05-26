@@ -1,0 +1,63 @@
+div.contenedor{
+  box-shadow:  0px 0px 5px 1px rgb(206, 206, 206);
+  padding: 15px;
+  height: max-content;
+  width:400px;
+  margin-top: 10px;
+  margin: 10px;
+}
+
+div.titulo{
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+div.precio {
+  font-size: 1rem;
+  font-weight: bold;
+  color: gray;
+  margin-bottom: 10px;
+}
+
+ul.caracteristicas{
+  display:inline-flex;
+  list-style: none;
+}
+
+li.lista {
+  text-align: center;
+  color: gray;
+  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  border-radius: 40px 40px / 40px 40px;
+  padding:5px 15px 5px 15px;
+  background-color: rgb(230, 230, 230);
+}
+
+tr.detalles {
+  font-size: 9pt;
+  margin-bottom: 2cm;
+}
+td.fila {
+  padding-right: 80px;
+}
+
+button.seleccionar {
+  box-shadow: 0px 0px 1px 1px rgb(190, 190, 190);
+  font-weight: 500;
+  padding: 5pt 15pt;
+  align-self: right;
+  background-color: white;
+  border-width: 0px;
+  border-radius: 3px;
+}
+
+button.seleccionar:hover {
+  align-self: right;
+  background-color: rgb(230, 230, 230);
+}
+
+img.contenedor{
+  width: 370px;
+}
