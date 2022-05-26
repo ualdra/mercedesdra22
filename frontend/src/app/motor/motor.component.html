@@ -1,14 +1,16 @@
 <div class="contenedor">
-  <div class="titulo"> {{nombre}} </div>
-  <div class="precio"> {{precio}} </div>
+  <div class="titulo">{{ nombre }}</div>
+  <div class="precio">{{ precio }}</div>
   <ul class="caracteristicas" *ngFor="let carac of caracteristicas">
-    <li class="lista">{{carac}}</li>
+    <li class="lista">{{ carac }}</li>
   </ul>
   <tr class="detalles" *ngFor="let keyValue of detalles.entries()">
-    <td class="fila">{{keyValue[0]}}</td>
-    <td class="fila">{{keyValue[1]}}</td>
+    <td class="fila">{{ keyValue[0] }}</td>
+    <td class="fila">{{ keyValue[1] }}</td>
   </tr>
-  <div align="right">
-    <button type="button" class="seleccionar" (click)="seleccionar()">Seleccionar</button>
+  <div aling="right">
+    <button type="button" class="seleccionar" (click)="seleccionar()">
+      Seleccionar
+    </button>
   </div>
 </div>

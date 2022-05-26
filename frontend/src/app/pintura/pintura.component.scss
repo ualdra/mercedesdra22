@@ -1,0 +1,41 @@
+
+.container{
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50%;
+  margin-top: 40px;
+
+}
+
+#imgColor{
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+}
+
+.box-right{
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+.gris{
+  color:gray
+}
+.zoom
+{
+  transition: transform 1s;
+}
+.zoom:hover {
+  transform: scale(0.8);
+}
+
+label{
+font-size: 15px;
+}
+
+.buttonPintura {
+  border: none;
+  background: transparent;
+}

@@ -1,38 +1,6 @@
-<div class="container">
-  <div class="coche">
-    <h3 class="tituloModelo">Clase A Compacto</h3>
-    <label class="precioCoche" for="precio">desde 35.166.85€</label>
-    <br />
-    <label class="tipoCoche">Híbrido</label>
-    <br />
-    <img
-      class="imgCoche"
-      src="https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXqaEdqtyO35PobzIExXrItvsTQKkojUfGoo7GE11KFm9whk9Q6FjcBXBXjXGEAJ3J0l5CNOB2NrjbApjAbI5uV52QC3qhQkzNRtum7jxOZhKV1%25L%25vqwylyLRZiRYaxWaWrH1dMln8wfQcoiZEkpM4FlRrTg92xV6PD87mSeWiaItsd4J3cUfgO0XGEPTRJ0l7YlOB2KBjbApvP9I5uLmIQC3ahpkzNHmnm7jQe3hKVkYQ%25vqmIlyLRsAWYaxUkhrH1Ggfn8w0XnoiZKbXM4F14PTg9wzV6PDZ%25pSeWFw9tsd9B%25cUfArkXGE5nYJ0lCrnOIJtR1q0goiZ7ipM4Fz2rHbFBpn8YB0uoirAa3M4zF1NTg7r0j6PSDZVSetS5qtsc%25XRcUXyexXGJpL1J0Ou2wOBbevZbAIsxFITin0xdL789iTKMNzQ5u9CAGmmKgdPzqCPDVeg8c8uAuyBM6%25GYBkvmP1CP&imgt=P27&bkgnd=9&pov=BE040&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=350"
-      alt=""
-    />
-  </div>
-  <div class="coche">
-    <h3 class="tituloModelo">Clase B Sports Tourer</h3>
-    <label class="precioCoche" for="precio">desde 35.166.85€</label>
-    <br />
-    <label class="tipoCoche">Híbrido</label>
-    <br />
-    <img
-      class="imgCoche"
-      src="https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXq0ELqtyO67PobzIr3eWsrrCsdRRzwQZxkIZbMw3SGtGyItsd2sDcUfpOcXGEjGjJ0lVohOB2s85bApUkCI5uL5qQC3ahpkzNHmnm7jQe3hKVkYQ%25vqeBDyLRsQmYaxUtxrH1zJtn8w7hnoiZKeEM4F1SrTg9wh26PDG%25mSeW0h%25tXSMNV3eHyLRA3mYaxBblrH1p94n8wiA4oiZ451M4FgmQTg9Pxn6PKNCZnX2f3SNsV7hQCDkSW9wUUEVXqdYWqtyRV3H3k9kBF7v0wAFslUqoWq&imgt=P27&bkgnd=9&pov=BE040&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=350"
-      alt=""
-    />
-  </div>
-  <div class="coche">
-    <h3 class="tituloModelo">EQE</h3>
-    <label class="precioCoche" for="precio">desde 35.166.85€</label>
-    <br />
-    <label class="tipoCoche">Eléctrico</label>
-    <br />
-    <img
-      class="imgCoche"
-      src="https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXq0xdqtyO67PobzIr3eWsrrCsdRRzwQZgk4ZbMw3SGtGyMtsd2sDcUfp8qXGEubYJ0l3ClOB2NznbApRnoI5ux4YQC31SrkzNBlNm7j86ZhKVi%25E%25vq48ZyLRhAmYaxUkhrH1Gc1n8w7OyoiZK6EM4FvRwTg9LYp6PDaGbSeWH0RtsdBYQcUfAyYXOc6VRjUirH1CCOn8w5QpoiZH5IM4FN81Tg9Pzn6PDe7NSeWsKUtsLV79MOuljcVGXzGSudhcfWF002ROxEnfxXr1RjijhWh5DvaAFCDGp0xTfx&imgt=P27&bkgnd=9&pov=BE040&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=650"
-      alt=""
-    />
-  </div>
+<div class="coche">
+  <h3 class="tituloModelo">{{ claseCoche }} {{ nombreCoche }}</h3>
+  <label class="precioCoche" for="precio">desde {{ precioCoche }}€ </label>
+  <br />
+  <img class="imgCoche" src="{{ imgUrl }}" alt="" />
 </div>

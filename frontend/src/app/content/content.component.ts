@@ -3,14 +3,16 @@ import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
 import { CarService } from '../car.service';
+
 @Component({
-  selector: 'app-nav',
-  templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss'],
+  selector: 'app-content',
+  templateUrl: './content.component.html',
+  styleUrls: ['./content.component.scss']
 })
-export class NavComponent implements OnInit {
+export class ContentComponent implements OnInit {
+
   cars: any = [];
-  modelCars : any = {};
+  modelCars : any = [];
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(
@@ -23,8 +25,11 @@ export class NavComponent implements OnInit {
     private carService: CarService
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
+  async getModel(carroceria: String) {
+
+    this.modelCars = this.carService.getModel(carroceria);
   }
 
- }
+}

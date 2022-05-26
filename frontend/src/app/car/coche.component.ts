@@ -7,9 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CarComponent implements OnInit {
 
+  @Input() claseCoche!:string;
+  @Input() nombreCoche!:string;
   @Input() modeloCoche!:string;
-  @Input() carroceriaCoche!:number;
-  @Input() imagenCoche!:string;
+  @Input() precioCoche!:string;
+  @Input() imgUrl!:string;
 
 
   constructor() { }
