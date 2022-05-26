@@ -11,6 +11,7 @@ export class CarComponent implements OnInit {
   @Input() nombreCoche!:string;
   @Input() modeloCoche!:string;
   @Input() precioCoche!:string;
+  @Input() imgUrl!:string;
 
 
   constructor() { }

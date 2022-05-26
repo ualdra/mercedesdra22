@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="div-button-menu">
+    <button
+      type="button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="drawer.toggle()"
+      *ngIf="isHandset$ | async"
+    >
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+  </div>
+  <div class="content">
+    <div class="desplegable-menu">
+      <!-- Menu lateral -->
+      <mat-sidenav
+        #drawer
+        class="sidenav"
+        fixedInViewport
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false"
+      >
+        <!-- Menú -->
+
+        <mat-nav-list>
+          <button
+            class="w-100 button-menu"
+            mat-button
+            (click)="changeMotores()"
+          >
+            Motores
+          </button>
+          <button
+            class="w-100 button-menu"
+            mat-button
+            (click)="changePinturas()"
+          >
+            Pinturas
+          </button>
+          <button
+            class="w-100 button-menu"
+            mat-button
+            (click)="changeLlantas()"
+          >
+            Llantas
+          </button>
+          <button
+            class="w-100 button-menu"
+            mat-button
+            (click)="changeTapicerias()"
+          >
+            Tapicerías
+          </button>
+          <button
+            class="w-100 button-menu"
+            mat-button
+            (click)="changeAsientos()"
+          >
+            Asientos
+          </button>
+        </mat-nav-list>
+      </mat-sidenav>
+    </div>
+    <!--
+        <div *ngFor="let car of modelCars; index as i" class="car">
+        <app-car></app-car>
+      </div>
+     -->
+    <div *ngIf="typeConfiguration == 1" class="cars">
+      <app-motor></app-motor>
+    </div>
+    <div *ngIf="typeConfiguration == 2" class="cars">
+      <app-pintura></app-pintura>
+      <app-pintura></app-pintura>
+      <app-pintura></app-pintura>
+      <app-pintura></app-pintura>
+    </div>
+    <div *ngIf="typeConfiguration == 3" class="cars"></div>
+    <div *ngIf="typeConfiguration == 4" class="cars">
+      <app-tapiceria></app-tapiceria>
+    </div>
+    <div *ngIf="typeConfiguration == 5" class="cars"></div>
+  </div>
+</div>

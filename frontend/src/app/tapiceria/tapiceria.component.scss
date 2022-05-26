@@ -3,9 +3,10 @@
     flex-direction: column;
     justify-content: center;
     gap: 50px;
-    width: 70%;
-  
-    
+    width: 75%;
+    margin-left: 10%;
+
+
 }
 #imgCar{
     display:flex;
@@ -14,17 +15,13 @@
 }
 .below{
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-flow: wrap;
+    width: 100%;
     row-gap: 10px;
     justify-items: left;
 }
 
-p{
-    row-gap: 1px;
-    display:flex;
-    flex-direction: row;
-    
-}
 .top
 {
     display: flex;
