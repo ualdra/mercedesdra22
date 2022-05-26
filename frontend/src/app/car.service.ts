@@ -8,7 +8,7 @@ export class CarService {
   private mercedesURL =
     'https://api.mercedes-benz.com/configurator/v1/markets/es_ES'; // URL to web api
   private backendURL = 'http://localhost:8081/api';
-  private api_key = '4c42f347-3571-4aec-9b4e-2b8e03cb4c85';
+  private api_key = '7d0dc3ac-5237-44e2-b75c-b0d66cc6a391';
   private api_keyOWN = '4c42f347-3571-4aec-9b4e-XX';
   private components: any | undefined;
   car: any = [];
@@ -88,7 +88,9 @@ export class CarService {
     this.components = undefined;
   }
 
-  getPinturas(modelId: any): any[] {
+  async getPinturas(modelId: any):  Promise<any[]> {
+    await this.loadConfiguration(modelId);
+
     let paints: any[] = [];
     let pinturasID: any[] = [];
     this.components.componentCategories
@@ -105,8 +107,8 @@ export class CarService {
     return paints;
   }
 
-  async getTapiceria(): Promise<any[]> {
-    await this.loadConfiguration('2062031');
+  async getTapiceria(modelId: any): Promise<any[]> {
+    await this.loadConfiguration(modelId);
 
     let tapiceria: any[] = [];
     let tapiceriaID: any[] = [];
@@ -124,13 +126,13 @@ export class CarService {
     return tapiceria;
   }
 
-  async getModel(carroceria: String): Promise<any> {
+  async getModel(carroceria: String) {
     let modelCars: any = [];
-    let response = this.http
+    this.http
       .get<any>(`${this.mercedesURL}/models?bodyId=${carroceria}&apikey=${this.api_key}`, this.httpOptions)
-      .toPromise();
+      .subscribe(aux =>
 
-        var aux = await response;
+
         aux.forEach(async (item: {vehicleClass: { className: any };modelId: any;name: any;priceInformation: { price: any };}) => {
             if (!modelCars.some((e: { class: any }) => e.class == item.vehicleClass.className)) {
               modelCars.push({ class: item.vehicleClass.className, cars: [] });
@@ -146,22 +148,24 @@ export class CarService {
 
             await modelCars.find((element: { class: any; cars: [] }) => element.class == item.vehicleClass.className)
               .cars.sort((a: { price: number }, b: { price: number }) => a.price - b.price );
-        });
+
+        }));
     return modelCars;
   }
 
-  async getDatosMotor(modelId: String) : Promise<any>{
-    const configuration = await this.http
+   getDatosMotor(modelId: String) {
+    var datosMotor : {aceleracion : any, emisiones : any, caballos : any, consumo : any} = {
+      aceleracion: undefined,
+      emisiones: undefined,
+      caballos: undefined,
+      consumo: undefined
+    }
+    this.http
       .get<any>(
         `${this.mercedesURL}/models/${modelId}/configurations/initial?apikey=${this.api_key}`, this.httpOptions )
-      .toPromise();
+      .subscribe(configuration =>datosMotor = configuration);
 
-    var datosMotor = {
-      consumo : await configuration.technicalInformation.engine.fuelEconomy.fuelConsumptionCombinedMin.value,
-      aceleracion: await configuration.technicalInformation.acceleration.value,
-      emisiones: await configuration.technicalInformation.engine.fuelEconomy.emissionCO2Min.value,
-      caballos: await configuration.technicalInformation.engine.fuelType == "ELECTRIC" ? configuration.technicalInformation.engine.powerHybridExtensionHp.value  :await configuration.technicalInformation.engine.powerHp.value
-    }
+
     return datosMotor;
   }
 }

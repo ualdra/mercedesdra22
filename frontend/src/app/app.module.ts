@@ -23,6 +23,8 @@ import { CarComponent } from './car/coche.component';
 import { GarageComponent } from './garage/garage.component';
 import { ContentComponent } from './content/content.component';
 import { MenuComponent } from './menu/menu.component';
+import { ConfiguratorComponent } from './configurator/configurator.component';
+import { PinturaComponent } from './pintura/pintura.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { MenuComponent } from './menu/menu.component';
     CarComponent,
     GarageComponent,
     ContentComponent,
-    MenuComponent
+    MenuComponent,
+    ConfiguratorComponent,
+    PinturaComponent
   ],
   imports: [
     BrowserModule,

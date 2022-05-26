@@ -29,9 +29,7 @@ export class ContentComponent implements OnInit {
 
   async getModel(carroceria: String) {
 
-    this.modelCars =  await this.carService.getModel(carroceria);
-
-    console.log(this.modelCars)
+    this.modelCars = this.carService.getModel(carroceria);
   }
 
 }

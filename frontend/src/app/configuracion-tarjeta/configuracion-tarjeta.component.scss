@@ -5,12 +5,12 @@
     flex-direction: row;
     align-items: center;
     height: 50%;
-    
+
 }
 
 #imgColor{
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     border-radius: 10px;
 }
 
@@ -24,8 +24,12 @@
 }
 .zoom
 {
-    transition: transform .2s;
+    transition: transform 1s;
 }
 .zoom:hover {
-    transform: scale(1.5); 
+    transform: scale(0.8);
+}
+
+label{
+  font-size: 15px;
 }
