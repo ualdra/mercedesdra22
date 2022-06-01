@@ -12,6 +12,7 @@ import { CarService } from '../car.service';
 export class ContentComponent implements OnInit {
   cars: any = [];
   modelCars: any = [];
+  typeConfiguration: number = 0;
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(
@@ -86,5 +87,27 @@ export class ContentComponent implements OnInit {
       );
     });
     console.log(this.modelCars);
+  }
+
+  changeTodos() {
+    this.typeConfiguration = 0;
+  }
+  changeCompacto() {
+    this.typeConfiguration = 1;
+  }
+  changeBerlina() {
+    this.typeConfiguration = 2;
+  }
+  changeEstate() {
+    this.typeConfiguration = 3;
+  }
+  changeSUV() {
+    this.typeConfiguration = 4;
+  }
+  changeCoupe() {
+    this.typeConfiguration = 5;
+  }
+  changeCabrio() {
+    this.typeConfiguration = 6;
   }
 }
