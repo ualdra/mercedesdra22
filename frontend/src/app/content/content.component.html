@@ -24,10 +24,13 @@
         <!-- Menú -->
 
         <mat-nav-list>
+          <button class="w-100 button-menu" mat-button (click)="changeTodos()">
+            <span> Mostrar todos </span>
+          </button>
           <button
             class="w-100 button-menu"
             mat-button
-            (click)="getModel('KOMPAKT-LIMOUSINE')"
+            (click)="changeCompacto()"
           >
             <span>
               <svg
@@ -54,7 +57,7 @@
           <button
             class="w-100 button-menu"
             mat-button
-            (click)="getModel('LIMOUSINE')"
+            (click)="changeBerlina()"
           >
             <span>
               <svg
@@ -78,11 +81,7 @@
             </span>
             Berlina
           </button>
-          <button
-            class="w-100 button-menu"
-            mat-button
-            (click)="getModel('T-MODELL')"
-          >
+          <button class="w-100 button-menu" mat-button (click)="changeEstate()">
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -104,11 +103,7 @@
             </span>
             Estate
           </button>
-          <button
-            class="w-100 button-menu"
-            mat-button
-            (click)="getModel('OFFROADER')"
-          >
+          <button class="w-100 button-menu" mat-button (click)="changeSUV()">
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -134,11 +129,7 @@
             </span>
             SUV
           </button>
-          <button
-            class="w-100 button-menu"
-            mat-button
-            (click)="getModel('COUPE')"
-          >
+          <button class="w-100 button-menu" mat-button (click)="changeCoupe()">
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -159,11 +150,7 @@
             </span>
             Coupé
           </button>
-          <button
-            class="w-100 button-menu"
-            mat-button
-            (click)="getModel('CABRIOLET')"
-          >
+          <button class="w-100 button-menu" mat-button (click)="changeCabrio()">
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -180,7 +167,8 @@
         </mat-nav-list>
       </mat-sidenav>
     </div>
-    <div class="cars">
+    <div *ngIf="typeConfiguration == 0" class="cars">
+
       <app-car
         [routerLink]="['/configurator']"
         [claseCoche]="'Clase A Compacto'"
@@ -309,6 +297,162 @@
           'https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXqNEFqtyO67PobzIr3eWsrrCsdRRzwQZQ9vZbMw3SGtle9tsd3h%25cUfN%25lXGEjnmJ0lVoxOB2s8%25bApUkRI5uLozQC3aCRkzNHmwm7jQGIhKVP0E%25vqeBcyLRsQmYaxUk8rH1zJtn8w7TfoiZK%25gM4FsmQTg9Ukm6tTnuNpgLhKVUXd%25vq7UcyLRKA6YaxvNErH1pVsn8wiOyoiZ4bIM4FgCrTg9Pze6PDe7mSevjzFoJpENtjU9C8k5WmtdDZGGlqJRfrdRcYxqN8NmDmA9KLBZ59U2GRMdR&imgt=P27&bkgnd=9&pov=BE040&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=650'
         "
       ></app-car>
+      <app-car
+        [routerLink]="['/configurator']"
+        [claseCoche]="'Clase C Cabrio'"
+        [precioCoche]="'62.126,16'"
+        [imgUrl]="
+          'https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXq5WFqtyO35PobzIExXrItvsTQKkojUfGoo7GE11KFm9mWa9Q6FjcBXBXjXGEAJ3J0l5CNOB2NBEbApjTlI5uVcxQC3qX3kzNRmdm7jxh3hKV1HV%25vqw8jyLRDcXYaxWXwrH1dMln8wfQcoiZEkpM4FlRrTg92xV6PD87bSeWiK9tsd4J3cUfgMqXGEzyBJ0l74ZOB2KbqbApvIVI5uOeJQC3bXWkzNIonm7jgyZhKVPH9%25vqAtTyLR5QyYaxCk8rH1zgrn8wROcoiZxioM4F14PTg9wgk6PDZ7qSeWFw9tsd9oQcUfArkXGE5nYJ0lCrnOIJtR1q0goiZ7MEM4F54JTg97pn8IkduoirvA3M4nE5NTgolSj6PMz5VSevWFqtsLifRcUXfDxXGJEV1J0OJKwOBbORZbAIoxFI5QUa9QCkxNDkSgMAwEHv4Wgh5ol3nzNW7CB%25%25LeEsKx7sdRUe4J4NCNr56tYBn5ha%25sZ7s&imgt=P27&bkgnd=9&pov=BE040,DZO&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=650'
+        "
+      ></app-car>
+      <app-car
+        [routerLink]="['/configurator']"
+        [claseCoche]="'SL Roadster'"
+        [precioCoche]="'185.359,06'"
+        [imgUrl]="
+          'https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXqrWFqtyO67PobzIr3eWsrrCsdRRzwQZgk4ZbMw3SGtlaWtsd2J%25cUfpMqXGEjyYJ0lV0fOB2qM%25bApUnbI5uGmIQC30E3kzNHTnm7j871hKVi%25N%25vqeUDyLRsnDYaxCXhrH1zHdn8w7VxoiZK%25oM4FvyFTg9L6O6PDaSmSeWH0Itsd8BxcUfDO6XGE5YrJbXSqxVG4n8wzofoiZCqGM4FN8cTg9Pt36PDe1mSeWst9tsLV79MOuljcVGyubdudhcfWF002ROxEnfxXr1RjijhWh5DvaAFCDGp0xTfx&imgt=P27&bkgnd=9&pov=BE040,DZO&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=650'
+        "
+      ></app-car>
+    </div>
+    <div *ngIf="typeConfiguration == 1" class="cars">
+      <app-car
+        [routerLink]="['/configurator']"
+        [claseCoche]="'Clase A Compacto'"
+        [precioCoche]="'31.281,87'"
+        [imgUrl]="
+          'https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXqaEdqtyO35PobzIExXrItvsTQKkojUfGoo7GE11KFm9whk9Q6FjcBXBXjXGEAJ3J0l5CNOB2NrjbApjAbI5uV52QC3qhQkzNRtum7jxOZhKV1%25L%25vqwylyLRZiRYaxWaWrH1dMln8wfQcoiZEkpM4FlRrTg92xV6PD87mSeWiaItsd4J3cUfgO0XGEPTRJ0l7YlOB2KBjbApvP9I5uLmIQC3ahpkzNHmnm7jQe3hKVkYQ%25vqmIlyLRsAWYaxUkhrH1Ggfn8w0XnoiZKbXM4F14PTg9wzV6PDZ%25pSeWFw9tsd9B%25cUfArkXGE5nYJ0lCrnOIJtR1q0goiZ7ipM4Fz2rHbFBpn8YB0uoirAa3M4zF1NTg7r0j6PSDZVSetS5qtsc%25XRcUXyexXGJpL1J0Ou2wOBbevZbAIsxFITin0xdL789iTKMNzQ5u9CAGmmKgdPzqCPDVeg8c8uAuyBM6%25GYBkvmP1CP&imgt=P27&bkgnd=9&pov=BE040&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=350'
+        "
+      ></app-car>
+      <app-car
+        [routerLink]="['/configurator']"
+        [claseCoche]="'Clase B Sports Tourer'"
+        [precioCoche]="'35.166,85'"
+        [imgUrl]="
+          'https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXq0ELqtyO67PobzIr3eWsrrCsdRRzwQZxkIZbMw3SGtGyItsd2sDcUfpOcXGEjGjJ0lVohOB2s85bApUkCI5uL5qQC3ahpkzNHmnm7jQe3hKVkYQ%25vqeBDyLRsQmYaxUtxrH1zJtn8w7hnoiZKeEM4F1SrTg9wh26PDG%25mSeW0h%25tXSMNV3eHyLRA3mYaxBblrH1p94n8wiA4oiZ451M4FgmQTg9Pxn6PKNCZnX2f3SNsV7hQCDkSW9wUUEVXqdYWqtyRV3H3k9kBF7v0wAFslUqoWq&imgt=P27&bkgnd=9&pov=BE040&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=650'
+        "
+      ></app-car>
+    </div>
+    <div *ngIf="typeConfiguration == 2" class="cars">
+      <app-car
+        [routerLink]="['/configurator']"
+        [claseCoche]="'EQE'"
+        [precioCoche]="'76.000,00'"
+        [imgUrl]="
+          'https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXq0xdqtyO67PobzIr3eWsrrCsdRRzwQZgk4ZbMw3SGtGyMtsd2sDcUfp8qXGEubYJ0l3ClOB2NznbApRnoI5ux4YQC31SrkzNBlNm7j86ZhKVi%25E%25vq48ZyLRhAmYaxUkhrH1Gc1n8w7OyoiZK6EM4FvRwTg9LYp6PDaGbSeWH0RtsdBYQcUfAyYXOc6VRjUirH1CCOn8w5QpoiZH5IM4FN81Tg9Pzn6PDe7NSeWsKUtsLV79MOuljcVGXzGSudhcfWF002ROxEnfxXr1RjijhWh5DvaAFCDGp0xTfx&imgt=P27&bkgnd=9&pov=BE040&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=650'
+        "
+      ></app-car>
+      <app-car
+        [routerLink]="['/configurator']"
+        [claseCoche]="'EQS'"
+        [precioCoche]="'119.476,71'"
+        [imgUrl]="
+          'https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXq0WFqtyO67PobzIr3eWsrrCsdRRzwQZgk4ZbMw3SGtlaWtsd2HVcUfp8yXGEubYJ0lVohOB2sg5bApvAVI5uLeZQC3akWkzNH6nm7j8MjhKVPbQ%25vqeIdyLRsSmYaxCXhrH1zMdn8w7oyoiZKMIM4FsmJTg9Ukm6tTnuNpgLhKV0SN%25vqGUDyLRKOyYaxvODrH1pLDn8wi8yoiZ45pM4zuA1YtEWpTuP6CPDAFIT9ZxeedNtjD%259j6hVNpLpIZIGwC7Ux0wPfejr9j&imgt=P27&bkgnd=9&pov=BE040&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=1300'
+        "
+      ></app-car>
+      <app-car
+        [routerLink]="['/configurator']"
+        [claseCoche]="'Clase A Berlina'"
+        [precioCoche]="'32.211,89'"
+        [imgUrl]="
+          'https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXqNEFqtyO35PobzIExXrItvsTQKkojUfGoo7GE11KFm9whk9Q6FjcBXB%25uXGEAnmJ0l5OqOB2NrjbApjAbI5uV52QC3qhQkzNRtum7jxOZhKV1%25L%25vqwylyLRZiRYaxWaWrH1dMln8wfQcoiZEkpM4FlRrTg92xV6PD87sSeWiaItsd4J3cUfgO0XGEPTRJ0l7YlOB2KBjbApvP9I5uLmIQC3ahpkzNHmnm7jQe3hKVkYQ%25vqmIlyLRsAWYaxUkhrH1Ggfn8w0XwoiZKbXM4F14MTg9wge6PDZ7qSeWFyutsd9ZDcUfDMkXGE5nmJ0lCorOB2znobQOcxwRBPM4Fz2rHbFBpn8YB0uoirAa3M4zF1NTg7r0j6PSDZVSetS5qtsc%25XRcUXyexXGJpL1J0Ou2wOBbevZbAIsxFI5QR39Q64oB1faKiD46vTmu5C3Dz50hhvPfe7RzeWqsPiXi353YATSy0rAmLhewze&imgt=P27&bkgnd=9&pov=BE040&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=650'
+        "
+      ></app-car>
+      <app-car
+        [routerLink]="['/configurator']"
+        [claseCoche]="'Clase C Berlina'"
+        [precioCoche]="'47.752,96'"
+        [imgUrl]="
+          'https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXqNWFqtyO67PobzIr3eWsrrCsdRRzwQZQ9vZbMw3SGtle9tsd2HdcUfp8qXGEubYJ0l3ofOB2NbFbApRn3I5ux5xQC31grkzNwtnm7jA2jhKViSF%25vq4tqyLRgLFYaxPrWrH1enun8wYOxoiZr7YM4FAmjTg95hp6PDCroSeWHmMtsd8J3cUfiFWXGE4TXJ0lgChOB2PzFbAp7oMIkbX1ZxAeTg9vx96PDK%25jSeWgKhtsdPHQcUfeFqXGE1D7J0lBHtOB2A85bAp5ioI5uCeuQCPFi2J%25xVZkF7pQ6ZT3MkNulKKqD%25WjcNWmtdDZGZMuMapgeLlHp7RKWONW&imgt=P27&bkgnd=9&pov=BE040&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=650'
+        "
+      ></app-car>
+      <app-car
+        [routerLink]="['/configurator']"
+        [claseCoche]="'Clase E Berlina'"
+        [precioCoche]="'56.872,29'"
+        [imgUrl]="
+          'https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXq5WFqtyO67PobzIr3eWsrrCsdRRzwQZQ9vZbMw3SGtle9tsd2cxcUfN%25yXGEjy2J0lVohOB2KBObApJnlI5uOeJQC3isWkzN4Jbm7j06mhKVB%25w%25vqA8TyLR5i2Yax4NYrH1gObnMr%25E2fHzI5uemYQC3PgwkzN5zNm7jCGohKVzpW%25vqE3yyLRaLmYaxH0ErH18BOn8wioyoiCpBxySfD2Mpgr2Q3pZbMFwRPPW3SN9hFNTmj32v2bwbU15zsRG1gdPNYFN&imgt=P27&bkgnd=9&pov=BE040&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=650'
+        "
+      ></app-car>
+      <app-car
+        [routerLink]="['/configurator']"
+        [claseCoche]="'Clase S Berlina'"
+        [precioCoche]="'113.304,16'"
+        [imgUrl]="
+          'https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXq0WFqtyO67PobzIr3eWsrrCsdRRzwQZQ9vZbMw3SGtle9tsd2HtcUfpOyXGEuTRJ0l3OtOB2q81bApRTyI5uL5qQC3akWkzN4PKm7jgeFhKVPbQ%25vqAtkyLR5LDYaxCoWrH1zjRn8w7hnoiZK%25ZM4FvTJTg9L6n6PDaSmSeWH0Itsd9JTcUfDrNXGE5GXJ0lCrnOIJtR1q0goiZ7bYM4Fzm3Tg9ihT6PDV42SeWsehtsdUvVcUfGL0XGE0aYJ0lB4xOBi1aftkV3xb15YxoDn2rbpldCCNZkFu6pFIT9ZxexrlrKE847dvE5jCFcpF&imgt=P27&bkgnd=9&pov=BE040&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=650'
+        "
+      ></app-car>
+    </div>
+    <div *ngIf="typeConfiguration == 3" class="cars">
+      <app-car
+        [routerLink]="['/configurator']"
+        [claseCoche]="'Clase C Estate'"
+        [precioCoche]="'51.244,73'"
+        [imgUrl]="
+          'https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXqNWFqtyO67PobzIr3eWsrrCsdRRzwQZQ9vZbMw3SGtle9tsd2HdcUfp8qXGEubYJ0l3ofOB2NbFbApRn3I5ux5xQC31grkzNwtnm7jA2jhKViSF%25vq4tqyLRgLFYaxPoSrH1endn8wso3oiZrb1M4FnKrTg95z36PDC%25qSeWzy3tsd7oTcUfi%256XGE4bjJ0lgDfOB2PSObApe7RI5usKYQC3UvWkzNL6Sm%25kbFDZzGtsdHZdcUfarRXGEsaYJ0lU4hOB2GW1bApFfLI5uC4JQC3zg7kzN7P6m7jKGjhKUWP3IrZxD%25WLNhGDtVS%25qjuaa1frEROqEyJlfDADSjSiNsG8u4NLwaEQqE&imgt=P27&bkgnd=9&pov=BE040&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=650'
+        "
+      ></app-car>
+      <app-car
+        [routerLink]="['/configurator']"
+        [claseCoche]="'Clase C All-Terrain'"
+        [precioCoche]="'58.033,14'"
+        [imgUrl]="
+          'https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXq5WFqtyO67PobzIr3eWsrrCsdRRzwQZQ9vZbMw3SGtGKOtsd2sDcUfp8fXGEuiRJ0l3IrOB2NMEbApjI9I5uxoNQC31C1kzNwPnm7jZyDhKVFXM%25vqCuqyLRgcDYaxPXxrH1eMtn8wsofoiZUMNM4FGTfTg9oQZ6PDMLoSeWzKjtsd7YxcUfKrjXGEvhSJ0lgYtOB2PWEbApetbI5usczQC3Uv1kzNGLnm7j0afhKVHXt%25vq8cXyr%25kWfDvAJ0l4oVOB2igSbApcnbUlYa%25Ya2rHyr0pn8YNZuoirvA3M4TM2NTg6kpj6hzQipxBUCVzt4j%259QPDVeg8ccGKxvslevqELKCrCDgDO4m%25J8b4t0cvuev&imgt=P27&bkgnd=9&pov=BE040&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=650'
+        "
+      ></app-car>
+      <app-car
+        [routerLink]="['/configurator']"
+        [claseCoche]="'Clase E Estate'"
+        [precioCoche]="'59.958,88'"
+        [imgUrl]="
+          'https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXq5WFqtyO67PobzIr3eWsrrCsdRRzwQZQ9vZbMw3SGtGyItsd2sDcUfpX1XGEjyYJ0lVYpOB2qM%25bApvAbI5uOo2QC3bsOkzN4P9m7jgGfhKVBSM%25vqAyZyLR5iDYaxC4SrH1zgun8wPVnoiZeIQM6oY2uliKkzNU%25nm7jseFhKVzKV%25vq7vdyLRK3fYax25qrH18H%25n8wiA2oiZ45IM4FgTrTg735wrcldu63eouKj39Q6DF1ssfjcVWyDVS%25qjuauQFQ0ZzKG1BZeEsVnDV&imgt=P27&bkgnd=9&pov=BE040&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=650'
+        "
+      ></app-car>
+      <app-car
+        [routerLink]="['/configurator']"
+        [claseCoche]="'CLA Shooting Brake'"
+        [precioCoche]="'34.314,34'"
+        [imgUrl]="
+          'https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXqNEFqtyO35PobzIExXrItvsTQKkojUfGoo7GE11KFm9whk9Q6FjcBXBXjXGEAJ3J0l5CNOB2NrjbApjAbI5uV52QC3qhQkzNRtum7jxOZhKV1%25L%25vqwylyLRZiRYaxWaWrH1dMln8wfQcoiZEkpM4FlRrTg92xV6PD87mSeWiaItsd4J3cUfgO0XGEPTRJ0l7YlOB2KBjbApvP9I5uLmIQC3ahpkzNHmnm7jQe3hKVkYQ%25vqmIlyLRsAWYaxUkhrH1Ggfn8w0XnoiZKbXM4FvslTg9wge6PDZ7qSeWFyutsd9ZDcUfDAyXGE5nmJ0lCorOB2znobQOcxwRBPM4FK4uTg97pn8I9AuoirAB3M4n5HNTg79wj6PKGcVSetWFqtsctCRcUXyJxXGJYs1J0OuawOBb3pZbAIsLFI5QU19Q64oB1faKiD46ZJB7kC3Dz50hhvPfe7RzeWqsPiXi353YATSy0rAmLhewze&imgt=P27&bkgnd=9&pov=BE040&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=650'
+        "
+      ></app-car>
+    </div>
+    <div *ngIf="typeConfiguration == 4" class="cars">
+      <app-car
+        [routerLink]="['/configurator']"
+        [claseCoche]="'EQA'"
+        [precioCoche]="'53.795,79'"
+        [imgUrl]="
+          'https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXq5hFqtyO67PobzIr3eWsrrCsdRRzwQZxkIZbMw3SGtle9tsd2JtcUfNUNXGEjnmJ0l70NOB2KQEbApvIyI5uOo2QC3bsOkzN4P9m7jgGFhKVPTQ%25vqAtkyLR5QyYaxCkprH1zgdn8wRTyoiZeioM4FsQkTSMrp324vm7jG2ZhKVU0b%25vq7JcyLRlA6YaxHahrH18B%25n8wiQboiZ4qYM4zuA1YtEWpTuPNprbxFIT9ZxeedNtjD%259j6hVNpLpIZIGwC7Ux0wPfejr9j&imgt=P27&bkgnd=9&pov=BE040&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=650'
+        "
+      ></app-car>
+      <app-car
+        [routerLink]="['/configurator']"
+        [claseCoche]="'EQB'"
+        [precioCoche]="'55.225,01'"
+        [imgUrl]="
+          'https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXq5hFqtyO67PobzIr3eWsrrCsdRRzwQZxkIZbMw3SGtGyMtsd1HpcUfp%25uXGEuGdJ0l3IJOB2NMEbApjtRI5uVQzQC3qv3kzNwzwm7jZyDhKVFXM%25vq9JdyLRD3mYaxWNErH1djun8wvOfoiZL51M4FaSlTg9Hte6PD8rNSeWAmWtsd5spcUfC81XGEzbXJ0l7IfOB2KWFbApvIyI5uOo2QC3bsOkzN4TZm7jgeDhKVP09%25vqe8DyLRsSmYaxCXhrH1zCfn8w7h3oiZKeEM4F1SrTg9Uv26PDG%25bSeW0yStsdBY%25cUfAyYXOc6VRjUirH1Cjdn8w5EyLJb9lYa%25Z12rHA1qpn85kRuoiMZx3M4TM0NTg6Tpj6PSmuVSetY7qtsclKRcUX2ExXGJg71J0OPqwOoHYUqDKCaZHIiaUlsB2ZA0sQQziD45jA4FNgiaSa202hGnMms%25GI7Q4RA4&imgt=P27&bkgnd=9&pov=BE040&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=650'
+        "
+      ></app-car>
+    </div>
+    <div *ngIf="typeConfiguration == 5" class="cars">
+      <app-car
+        [routerLink]="['/configurator']"
+        [claseCoche]="'CLA Coupé'"
+        [precioCoche]="'33.581,10'"
+        [imgUrl]="
+          'https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXqNEFqtyO35PobzIExXrItvsTQKkojUfGoo7GE11KFm9whk9Q6FjcBXBXjXGEAJ3J0l5CNOB2NrjbApjAbI5uV52QC3qhQkzNRtum7jxOZhKV1%25L%25vqwylyLRZiRYaxWaWrH1dMln8wfQcoiZEkpM4FlRrTg92xV6PD87mSeWiaItsd4J3cUfgO0XGEPTRJ0l7YlOB2KBjbApvP9I5uLmIQC3ahpkzNHmnm7jQe3hKVkYQ%25vqmIlyLRsAWYaxUkhrH1Ggfn8w0XnoiZKbXM4F14PTg9wzV6PDZ%25pSeWFw9tsd9B%25cUfArkXGE5nYJ0lCrnOIJtR1q0goiZ7ipM4Fz2rHbFBpn8YB0uoirAa3M4zF1NTg7Utj6PSDZVSetS5qtsc%25XRcUXyexXGJpL1J0Ou2wOBbevZbAIsxFITin0xdL789iTwXczQ5u9CAGmmKgdPzqCPDVeg8c8uAuyBM6%25GYBkvmP1CP&imgt=P27&bkgnd=9&pov=BE040&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=650'
+        "
+      ></app-car>
+      <app-car
+        [routerLink]="['/configurator']"
+        [claseCoche]="'Clase C Coupé'"
+        [precioCoche]="'54.014,30'"
+        [imgUrl]="
+          'https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXqNEFqtyO67PobzIr3eWsrrCsdRRzwQZQ9vZbMw3SGtle9tsd3h%25cUfN%25lXGEjnmJ0lVoxOB2s8%25bApUkRI5uLozQC3aCRkzNHmwm7jQGIhKVP0E%25vqeBcyLRsQmYaxUk8rH1zJtn8w7TfoiZK%25gM4FsmQTg9Ukm6tTnuNpgLhKVUXd%25vq7UcyLRKA6YaxvNErH1pVsn8wiOyoiZ4bIM4FgCrTg9Pze6PDe7mSevjzFoJpENtjU9C8k5WmtdDZGGlqJRfrdRcYxqN8NmDmA9KLBZ59U2GRMdR&imgt=P27&bkgnd=9&pov=BE040&uni=c&im=Crop,rect=(0,-50,1350,700),gravity=Center;Resize,width=650'
+        "
+      ></app-car>
+    </div>
+    <div *ngIf="typeConfiguration == 6" class="cars">
       <app-car
         [routerLink]="['/configurator']"
         [claseCoche]="'Clase C Cabrio'"
