@@ -94,6 +94,25 @@
   width: 50%;
 }
 
+.configuration{
+  display: flex;
+  flex-direction: column;
+  flex-flow: wrap;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  margin-top: 200px;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.boton{
+margin: 10px;
+background-color: black;
+color: white;
+border-radius: 5px;
+}
 // @media(max-width:985px){
 //   .content{
 //     justify-content: center;

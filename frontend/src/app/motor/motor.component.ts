@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-motor',
@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MotorComponent implements OnInit {
   @Input() nombre!: string;
   @Input() precio!: string;
+  @Output() typeConfigurator = new EventEmitter<number>();
   @Input() caracteristicas = ['200CV', 'ABS'];
   @Input() detalles = new Map<string, string>([
     ['Consumo', '5L/100km'],
@@ -19,7 +20,7 @@ export class MotorComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  seleccionar(): void {
-    console.log('SELECCIONADO');
+  seleccionarMotor() {
+    this.typeConfigurator.emit(2);
   }
 }

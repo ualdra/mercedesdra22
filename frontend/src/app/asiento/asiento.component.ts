@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-asiento',
@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class AsientoComponent implements OnInit {
   @Input() nombre!: string;
   @Input() precio!: string;
+  @Output() typeConfigurator = new EventEmitter<number>();
   @Input() caracteristicas!: string;
   @Input() imagen!: string;
 
@@ -15,7 +16,7 @@ export class AsientoComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  seleccionar(): void {
-    console.log('SELECCIONADO');
+  seleccionarAsiento(): void {
+    this.typeConfigurator.emit(4);
   }
 }

@@ -48,17 +48,17 @@
           <button
             class="w-100 button-menu"
             mat-button
-            (click)="changeTapicerias()"
-          >
-            Tapicerías
-          </button>
-          <button
-            class="w-100 button-menu"
-            mat-button
             (click)="changeAsientos()"
           >
             Asientos
           </button>
+          <!-- <button
+            class="w-100 button-menu"
+            mat-button
+            (click)="changeTapicerias()"
+          >
+            Tapicerías
+          </button> -->
         </mat-nav-list>
       </mat-sidenav>
     </div>
@@ -69,31 +69,37 @@
      -->
     <div *ngIf="typeConfiguration == 1" class="cars">
       <app-motor
+        (typeConfigurator)="recibirMotor($event)"
         class="motor"
         [nombre]="'A 180'"
         [precio]="'31.281,87 €'"
       ></app-motor>
       <app-motor
+        (typeConfigurator)="recibirMotor($event)"
         class="motor"
         [nombre]="'A 200'"
         [precio]="'34.071,94 €'"
       ></app-motor>
       <app-motor
+        (typeConfigurator)="recibirMotor($event)"
         class="motor"
         [nombre]="'A 180 d'"
         [precio]="'36.939,50 €'"
       ></app-motor>
       <app-motor
+        (typeConfigurator)="recibirMotor($event)"
         class="motor"
         [nombre]="'A 200 d'"
         [precio]="'38.437,88 €'"
       ></app-motor>
       <app-motor
+        (typeConfigurator)="recibirMotor($event)"
         class="motor"
         [nombre]="'A 200 d 4MATIC'"
         [precio]="'40.917,93 €'"
       ></app-motor>
       <app-motor
+        (typeConfigurator)="recibirMotor($event)"
         class="motor"
         [nombre]="'A 250 e'"
         [precio]="'42.520,92 €'"
@@ -104,6 +110,7 @@
         <img id="mercedesCar" src="./assets/mercedesPintura.png" alt="" />
       </div>
       <app-pintura
+        (typeConfigurator)="recibirPintura($event)"
         class="pintura"
         [nombre]="'Pinturas MANUFAKTUR'"
         [descripcion]="'MANUFAKTUR rojo Patagonia metalizado'"
@@ -113,6 +120,7 @@
         [precio]="'1.264,45 €'"
       ></app-pintura>
       <app-pintura
+        (typeConfigurator)="recibirPintura($event)"
         class="pintura"
         [nombre]="'Pinturas MANUFAKTUR'"
         [descripcion]="'MANUFAKTUR gris montaña magno'"
@@ -122,6 +130,7 @@
         [precio]="'2.462,35 €'"
       ></app-pintura>
       <app-pintura
+        (typeConfigurator)="recibirPintura($event)"
         class="pintura"
         [nombre]="'Pinturas Metalizadas'"
         [descripcion]="'Azul denim metalizado'"
@@ -131,6 +140,7 @@
         [precio]="'786,50 €'"
       ></app-pintura>
       <app-pintura
+        (typeConfigurator)="recibirPintura($event)"
         class="pintura"
         [nombre]="'Pinturas Metalizadas'"
         [descripcion]="'Blanco digital metalizado'"
@@ -140,6 +150,7 @@
         [precio]="'786,50 €'"
       ></app-pintura>
       <app-pintura
+        (typeConfigurator)="recibirPintura($event)"
         class="pintura"
         [nombre]="'Pinturas Estándar'"
         [descripcion]="'Negro noche'"
@@ -149,6 +160,7 @@
         [precio]="'300,00 €'"
       ></app-pintura>
       <app-pintura
+        (typeConfigurator)="recibirPintura($event)"
         class="pintura"
         [nombre]="'Pinturas Estándar'"
         [descripcion]="'Blanco polar'"
@@ -163,6 +175,7 @@
         <img id="mercedesLlantas" src="./assets/llantas.png" alt="" />
       </div>
       <app-llanta
+        (typeConfigurator)="recibirLlanta($event)"
         class="llanta"
         [nombre]="'45,7 cm (18)'"
         [descripcion]="
@@ -174,6 +187,7 @@
         [precio]="'798,60 €'"
       ></app-llanta>
       <app-llanta
+        (typeConfigurator)="recibirLlanta($event)"
         class="llanta"
         [nombre]="'43,2 cm (17)'"
         [descripcion]="
@@ -185,6 +199,7 @@
         [precio]="'798,60 €'"
       ></app-llanta>
       <app-llanta
+        (typeConfigurator)="recibirLlanta($event)"
         class="llanta"
         [nombre]="'45,7 cm (18)'"
         [descripcion]="
@@ -196,6 +211,7 @@
         [precio]="'798,60 €'"
       ></app-llanta>
       <app-llanta
+        (typeConfigurator)="recibirLlanta($event)"
         class="llanta"
         [nombre]="'45,7 cm (18)'"
         [descripcion]="
@@ -207,11 +223,24 @@
         [precio]="'798,60 €'"
       ></app-llanta>
     </div>
-    <div *ngIf="typeConfiguration == 4" class="cars">
+    <!--<div *ngIf="typeConfiguration == 4" class="cars">
       <app-tapiceria></app-tapiceria>
+    </div>
+  -->
+    <div *ngIf="typeConfiguration == 4" class="cars">
+      <div class="configuration">
+        <div><h3>¿Desea guardar la configuración?</h3></div>
+        <div>
+          <button class="boton" [routerLink]="['']">Guardar</button>
+          <button class="boton" (click)="cancelarConfiguracion()">
+            Cancelar
+          </button>
+        </div>
+      </div>
     </div>
     <div *ngIf="typeConfiguration == 5" class="cars">
       <app-asiento
+        (typeConfigurator)="recibirAsiento($event)"
         [nombre]="'Paquetes de confort para los asientos'"
         [precio]="'553,70€'"
         [caracteristicas]="'negro'"
@@ -220,6 +249,7 @@
         "
       ></app-asiento>
       <app-asiento
+        (typeConfigurator)="recibirAsiento($event)"
         [nombre]="'Paquete de asientos multicontorno'"
         [precio]="'786,50€'"
         [caracteristicas]="'blanco'"
@@ -228,6 +258,7 @@
         "
       ></app-asiento>
       <app-asiento
+        (typeConfigurator)="recibirAsiento($event)"
         [nombre]="'Paquete de tapizado de cuero'"
         [precio]="'1.851,30 €'"
         [caracteristicas]="'marrón'"
@@ -236,6 +267,7 @@
         "
       ></app-asiento>
       <app-asiento
+        (typeConfigurator)="recibirAsiento($event)"
         [nombre]="'Paquete de tapizado de cuero'"
         [precio]="'2.458,30 €'"
         [caracteristicas]="'marrón'"
