@@ -4,21 +4,18 @@ import { CarService } from '../car.service';
 @Component({
   selector: 'app-pintura',
   templateUrl: './pintura.component.html',
-  styleUrls: ['./pintura.component.scss']
+  styleUrls: ['./pintura.component.scss'],
 })
 export class PinturaComponent implements OnInit {
+  listConfigurations: any = {};
+  constructor(private carService: CarService) {}
 
-  listConfigurations:any = {};
-  constructor(private carService: CarService) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-
-  }
-
-  @Input() nombre = "Negro";
-  @Input() descripcion="Tapizado en cuero marrón "
-  @Input() precio = "1.000 €";
-  @Input() imagen="https://assets.oneweb.mercedes-benz.com/bbd/images/v1/5142/d/73/b618c33581e9886225469337fc813e10ea5ee.jpg"
+  @Input() nombre!: string;
+  @Input() descripcion!: string;
+  @Input() precio!: string;
+  @Input() imagen!: string;
   // @Input() redireccion="";
 
   // nombre="Cuero"  //Insertar el nombre s
@@ -39,8 +36,7 @@ export class PinturaComponent implements OnInit {
   //   });
   // }
 
-  seleccionar():void {
-    console.log("SELECCIONADO");
+  seleccionar(): void {
+    console.log('SELECCIONADO');
   }
-
 }

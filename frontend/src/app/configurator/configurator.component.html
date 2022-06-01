@@ -68,37 +68,181 @@
       </div>
      -->
     <div *ngIf="typeConfiguration == 1" class="cars">
-      <app-motor class="motor"></app-motor>
-      <app-motor class="motor"></app-motor>
-      <app-motor class="motor"></app-motor>
-      <app-motor class="motor"></app-motor>
+      <app-motor
+        class="motor"
+        [nombre]="'A 180'"
+        [precio]="'31.281,87 €'"
+      ></app-motor>
+      <app-motor
+        class="motor"
+        [nombre]="'A 200'"
+        [precio]="'34.071,94 €'"
+      ></app-motor>
+      <app-motor
+        class="motor"
+        [nombre]="'A 180 d'"
+        [precio]="'36.939,50 €'"
+      ></app-motor>
+      <app-motor
+        class="motor"
+        [nombre]="'A 200 d'"
+        [precio]="'38.437,88 €'"
+      ></app-motor>
+      <app-motor
+        class="motor"
+        [nombre]="'A 200 d 4MATIC'"
+        [precio]="'40.917,93 €'"
+      ></app-motor>
+      <app-motor
+        class="motor"
+        [nombre]="'A 250 e'"
+        [precio]="'42.520,92 €'"
+      ></app-motor>
     </div>
     <div *ngIf="typeConfiguration == 2" class="cars">
       <div class="mercedesCar">
         <img id="mercedesCar" src="./assets/mercedesPintura.png" alt="" />
       </div>
-      <app-pintura></app-pintura>
-      <app-pintura></app-pintura>
-      <app-pintura></app-pintura>
-      <app-pintura></app-pintura>
+      <app-pintura
+        class="pintura"
+        [nombre]="'Pinturas MANUFAKTUR'"
+        [descripcion]="'MANUFAKTUR rojo Patagonia metalizado'"
+        [imagen]="
+          'https://assets.oneweb.mercedes-benz.com/bbd/images/v1/5142/4/27/00cab7e8fcab1218525c72558f70f0ff3846f.jpg'
+        "
+        [precio]="'1.264,45 €'"
+      ></app-pintura>
+      <app-pintura
+        class="pintura"
+        [nombre]="'Pinturas MANUFAKTUR'"
+        [descripcion]="'MANUFAKTUR gris montaña magno'"
+        [imagen]="
+          'https://assets.oneweb.mercedes-benz.com/bbd/images/v1/5142/5/cd/79fa24ef3d5d123a848e39cae239a726698c5.jpg'
+        "
+        [precio]="'2.462,35 €'"
+      ></app-pintura>
+      <app-pintura
+        class="pintura"
+        [nombre]="'Pinturas Metalizadas'"
+        [descripcion]="'Azul denim metalizado'"
+        [imagen]="
+          'https://assets.oneweb.mercedes-benz.com/bbd/images/v1/5142/4/98/020b20265132bd16d0410cda0011af6c0c072.jpg'
+        "
+        [precio]="'786,50 €'"
+      ></app-pintura>
+      <app-pintura
+        class="pintura"
+        [nombre]="'Pinturas Metalizadas'"
+        [descripcion]="'Blanco digital metalizado'"
+        [imagen]="
+          'https://assets.oneweb.mercedes-benz.com/bbd/images/v1/5142/b/41/c6fa4a348432d1f35bc0aae8471780aacc0b4.jpg'
+        "
+        [precio]="'786,50 €'"
+      ></app-pintura>
+      <app-pintura
+        class="pintura"
+        [nombre]="'Pinturas Estándar'"
+        [descripcion]="'Negro noche'"
+        [imagen]="
+          'https://assets.oneweb.mercedes-benz.com/bbd/images/v1/5142/d/73/b618c33581e9886225469337fc813e10ea5ee.jpg'
+        "
+        [precio]="'300,00 €'"
+      ></app-pintura>
+      <app-pintura
+        class="pintura"
+        [nombre]="'Pinturas Estándar'"
+        [descripcion]="'Blanco polar'"
+        [imagen]="
+          'https://assets.oneweb.mercedes-benz.com/bbd/images/v1/5142/a/09/b5c53691d0f84b6a40446a9389d32ef1eb2d9.jpg'
+        "
+        [precio]="'254,10 €'"
+      ></app-pintura>
     </div>
     <div *ngIf="typeConfiguration == 3" class="cars">
       <div class="mercedesCar">
         <img id="mercedesLlantas" src="./assets/llantas.png" alt="" />
       </div>
-      <app-llanta class="llanta"></app-llanta>
-      <app-llanta class="llanta"></app-llanta>
-      <app-llanta class="llanta"></app-llanta>
-      <app-llanta class="llanta"></app-llanta>
+      <app-llanta
+        class="llanta"
+        [nombre]="'45,7 cm (18)'"
+        [descripcion]="
+          'Llantas de aleación de 45,7 cm (18) en diseño multirradio color plata vanadio pulidas a alto brillo'
+        "
+        [imagen]="
+          'https://assets.oneweb.mercedes-benz.com/bbd/images/v1/5142/f/ad/1b3b714c7e7601a5051cf1455886dd7178d74.png'
+        "
+        [precio]="'798,60 €'"
+      ></app-llanta>
+      <app-llanta
+        class="llanta"
+        [nombre]="'43,2 cm (17)'"
+        [descripcion]="
+          'Llantas de aleación de 43,2 cm (17) y 5 radios dobles color negro mate y pulidas a alto brillo'
+        "
+        [imagen]="
+          'https://assets.oneweb.mercedes-benz.com/bbd/images/v1/5142/7/1f/4feac04a63b9844575c56c9d96a194b71864e.png'
+        "
+        [precio]="'798,60 €'"
+      ></app-llanta>
+      <app-llanta
+        class="llanta"
+        [nombre]="'45,7 cm (18)'"
+        [descripcion]="
+          'Llantas de aleación de 45,7 cm (18) y 5 radios dobles color negro y pulidas a alto brillo'
+        "
+        [imagen]="
+          'https://assets.oneweb.mercedes-benz.com/bbd/images/v1/5142/6/6c/9d278d80b7484cec6d8d744c01dcf590ced27.png'
+        "
+        [precio]="'798,60 €'"
+      ></app-llanta>
+      <app-llanta
+        class="llanta"
+        [nombre]="'45,7 cm (18)'"
+        [descripcion]="
+          'Llantas de aleación de 45,7 cm (18) y 5 radios dobles color negro y pulidas a alto brillo'
+        "
+        [imagen]="
+          'https://assets.oneweb.mercedes-benz.com/bbd/images/v1/5142/e/a8/d98663cf464263d3af02bd0a1a46539f0962f.png'
+        "
+        [precio]="'798,60 €'"
+      ></app-llanta>
     </div>
     <div *ngIf="typeConfiguration == 4" class="cars">
       <app-tapiceria></app-tapiceria>
     </div>
     <div *ngIf="typeConfiguration == 5" class="cars">
-      <app-asiento></app-asiento>
-      <app-asiento></app-asiento>
-      <app-asiento></app-asiento>
-      <app-asiento></app-asiento>
+      <app-asiento
+        [nombre]="'Paquetes de confort para los asientos'"
+        [precio]="'553,70€'"
+        [caracteristicas]="'negro'"
+        [imagen]="
+          'https://images.oneweb.mercedes-benz.com/iris/europe/ES/177086/803/iris.png?q=COSY-EU-100-1713d0VXq5hFqtyO67PobzIr3eWsrrCsdRRzwQZg9pZbMw3SGtle9tsd2JtcUfprWXGEuJwJ0lV0VOB2qM%25bApRTwI5uG4zQC30gpkzNB%25Km7j871hKVi%25M%25vqmBkyLRsAWYaxUthrH1zJrn8wPQboiZ7kIM4Fz2rHbQWpn8Y9ZuoiCmx3M4TM2NTg6dDj6PSHuVS%257k4u1AGzq7%250hfedeWqsPiXi353YATSy0rAmLhU1pk6D&IMGT=W27&POV=BI2&fb=1&BKGND=11&imwidth=1280'
+        "
+      ></app-asiento>
+      <app-asiento
+        [nombre]="'Paquete de asientos multicontorno'"
+        [precio]="'786,50€'"
+        [caracteristicas]="'blanco'"
+        [imagen]="
+          'https://assets.oneweb.mercedes-benz.com/bbd/images/v1/5142/9/fa/1cf8860edef72c6b757dc40a27a7ac8160c26.jpg'
+        "
+      ></app-asiento>
+      <app-asiento
+        [nombre]="'Paquete de tapizado de cuero'"
+        [precio]="'1.851,30 €'"
+        [caracteristicas]="'marrón'"
+        [imagen]="
+          'https://assets.oneweb.mercedes-benz.com/bbd/images/v1/5142/2/a7/4a020e5a8d57cd94fc48c0e56bd38733225ea.jpg'
+        "
+      ></app-asiento>
+      <app-asiento
+        [nombre]="'Paquete de tapizado de cuero'"
+        [precio]="'2.458,30 €'"
+        [caracteristicas]="'marrón'"
+        [imagen]="
+          'https://assets.oneweb.mercedes-benz.com/bbd/images/v1/5142/6/67/dc3d414c4d1a946b2e0ba724e78809137851b.jpg'
+        "
+      ></app-asiento>
     </div>
   </div>
 </div>

@@ -8,7 +8,7 @@ export class CarService {
   private mercedesURL =
     'https://api.mercedes-benz.com/configurator/v1/markets/es_ES'; // URL to web api
   private backendURL = 'http://localhost:8081/api';
-  private api_key = '7d0dc3ac-5237-44e2-b75c-b0d66cc6a391';
+  private api_key = '67926c0f-d7c2-4bcf-aa78-739458ba9882';
   private api_keyOWN = '4c42f347-3571-4aec-9b4e-XX';
   private components: any | undefined;
   car: any = [];
@@ -81,14 +81,13 @@ export class CarService {
     this.components = await this.http
       .get(configuration?._links?.selectables, this.httpOptions)
       .toPromise();
-
   }
 
   dropConfiguration() {
     this.components = undefined;
   }
 
-  async getPinturas(modelId: any):  Promise<any[]> {
+  async getPinturas(modelId: any): Promise<any[]> {
     await this.loadConfiguration(modelId);
 
     let paints: any[] = [];
@@ -126,46 +125,20 @@ export class CarService {
     return tapiceria;
   }
 
-  async getModel(carroceria: String) {
+  getModel(carroceria: String) {
     let modelCars: any = [];
-    this.http
-      .get<any>(`${this.mercedesURL}/models?bodyId=${carroceria}&apikey=${this.api_key}`, this.httpOptions)
-      .subscribe(aux =>
-
-
-        aux.forEach(async (item: {vehicleClass: { className: any };modelId: any;name: any;priceInformation: { price: any };}) => {
-            if (!modelCars.some((e: { class: any }) => e.class == item.vehicleClass.className)) {
-              modelCars.push({ class: item.vehicleClass.className, cars: [] });
-            }
-
-            const datosMotor = await this.getDatosMotor(item.modelId);
-
-            //console.log(datosMotor)
-            await modelCars.find((element: { class: any; cars: [] }) =>element.class == item.vehicleClass.className)
-              .cars.push({modelId: item.modelId, name: item.name, price: item.priceInformation.price, consumption: await datosMotor.consumo,
-                acceleration: await datosMotor.aceleracion, emissions: await datosMotor.emisiones, power: await datosMotor.caballos});
-
-
-            await modelCars.find((element: { class: any; cars: [] }) => element.class == item.vehicleClass.className)
-              .cars.sort((a: { price: number }, b: { price: number }) => a.price - b.price );
-
-        }));
-    return modelCars;
+    return this.http.get<any>(
+      `${this.mercedesURL}/models?bodyId=${carroceria}&apikey=${this.api_key}`,
+      this.httpOptions
+    );
   }
 
-   getDatosMotor(modelId: String) {
-    var datosMotor : {aceleracion : any, emisiones : any, caballos : any, consumo : any} = {
-      aceleracion: undefined,
-      emisiones: undefined,
-      caballos: undefined,
-      consumo: undefined
-    }
-    this.http
+  getDatosMotor(modelId: String) {
+    return this.http
       .get<any>(
-        `${this.mercedesURL}/models/${modelId}/configurations/initial?apikey=${this.api_key}`, this.httpOptions )
-      .subscribe(configuration =>datosMotor = configuration);
-
-
-    return datosMotor;
+        `${this.mercedesURL}/models/${modelId}/configurations/initial?apikey=${this.api_key}`,
+        this.httpOptions
+      )
+      .toPromise();
   }
 }

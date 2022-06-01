@@ -4,7 +4,7 @@
   text-align:center;
   margin: 0px auto;
   margin-top: 30px;
-  transition: all 0.3s;
+  transition: all 1.5s;
   border-radius: 5px;
   padding: 20px;
   cursor: pointer;
@@ -12,6 +12,15 @@
 
 .coche:hover{
   background-color: rgb(219, 219, 219);
+
+}
+
+.coche img{
+  transition: all 1.5s;
+}
+
+.coche img:hover{
+  transform: scale(1.1);
 }
 .tituloCoche{
   text-align: center;
