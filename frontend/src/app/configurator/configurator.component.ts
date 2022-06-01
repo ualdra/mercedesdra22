@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
 import { CarService } from '../car.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-configurator',
@@ -24,9 +25,14 @@ export class ConfiguratorComponent implements OnInit {
     );
 
   constructor( private breakpointObserver: BreakpointObserver,
-    private carService: CarService) { }
+    private carService: CarService, 	private _router: Router,
+  	private _route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this._route.params.subscribe(params => {
+  		let id = params["id"];
+      console.log(id);
+  	});
   }
   changeMotores(){
     this.typeConfiguration = 1;
