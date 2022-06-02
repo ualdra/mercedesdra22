@@ -13,6 +13,7 @@ export class ContentComponent implements OnInit {
   cars: any = [];
   modelCars: any = [];
   typeConfiguration: number = 0;
+
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(
@@ -29,7 +30,6 @@ export class ContentComponent implements OnInit {
 
   async getModel(carroceria: String) {
     this.modelCars = [];
-
     this.carService.getModel(carroceria).subscribe((aux) => {
       aux.forEach(
         async (item: {
@@ -109,5 +109,6 @@ export class ContentComponent implements OnInit {
   }
   changeCabrio() {
     this.typeConfiguration = 6;
+
   }
 }
