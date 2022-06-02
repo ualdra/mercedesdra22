@@ -1,4 +1,6 @@
-<div *ngIf="configuraciones.length === 0; then thenBlock; else elseBlock"></div>
+<div
+  *ngIf="configuracionesGaraje.length === 0; then thenBlock; else elseBlock"
+></div>
 
 <ng-template #thenBlock>
   <div class="texto">
@@ -10,7 +12,15 @@
   </div>
 </ng-template>
 
-<ng-template #elseBlock> configuraciones existentes </ng-template>
+<ng-template #elseBlock>
+  <div *ngFor="let car of configuracionesGaraje" class="car">
+    <app-car
+      [claseCoche]="car.nombre"
+      [precioCoche]="car.precio"
+      [imgUrl]="car.imagen"
+    ></app-car>
+  </div>
+</ng-template>
 
 <!-- <div class="container">
   <img id="imgGarage" src="{{garageImage}}">

@@ -4,6 +4,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
 import { CarService } from '../car.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { configuraciones } from '../configuracion';
 
 @Component({
   selector: 'app-configurator',
@@ -77,6 +78,11 @@ export class ConfiguratorComponent implements OnInit {
     this.typeConfiguration = 5;
   }
   guardarConfiguracion() {
-    this.typeConfiguration = 5;
+    configuraciones.push({
+      nombre: 'Configuración 1',
+      precio: '45.000',
+      imagen:
+        'https://www.mercedes-benz-madrid.es/content/dam/spain/reference/retail-refs/overview-images/1770121_.png',
+    });
   }
 }
